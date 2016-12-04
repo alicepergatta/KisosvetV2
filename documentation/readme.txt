@@ -1,1 +1,0 @@
-Soon here will be pdf document with detailed description of everything
