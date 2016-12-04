@@ -59,18 +59,22 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 
 
 **Q**: Can i build own Kisosvet but with different LED's and PM's?
+
 **A**: Yes! You just need to add variables for new LED's\PM's, and if your LED's are less or more powerful - you need to change PM's circuitry(replace DC-DC converter for diffrent type or power)
 
 **Q**: Which DC-DC type converters can be used for PM's?
+
 **A**:  You can use step-up, step-down, and even SEPIC.
 Almost all DC-DC converters have same negative feedback voltage control.
 Control circuitry, which i made in Kisosvet suitable for any DC-DC converters with negative feedback voltage control)
 (maybe you will need rewrite PWM values calculation, it can be inverted)
 
 **Q**: Which LED types can i use?
+
 **A**: Any) It depends on power modules circuitry(DC-DC converter type), and cooling possibilities(heatsink, fan, and thermal grease).
 
 **Q**: How can you describe a typical Kisosvet build configuration?
+
 **A**: I prefear 10W 12V LED's, 4 pieces placed in chess order(like subpixels). This allows me to use lithium battery pack and typical ATX PSU. Also, i made a 10W PM circuit(see schematic) based on cheap step-down converter.
 Despite it's cheapness - it's enough powerfull for 10W LED)
 
