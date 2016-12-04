@@ -1,30 +1,6 @@
 # KisosvetV2
 Smart LED-light for shoting photo, video, and comfort illumination in home)
 
-## Main functionality:
-
-- 16-bit PWM brightness regulation, without any flickering
-- Color temperature regulation, and white color calibration
-- Different LED types for full spectre(WW + NW or WW + CW for example)
-- Flickering-free power modules and control circuitry schematic
-- Step-down based power modules, wich can work at voltage up to 35V - in car, at home, everywhere with 3S(or more) lithium battery pack.
-- STM32 microcontroller as a "brain"
-- ESP8266 for networking functionality
-- DS18B20 as a temperature sensor for fan control logic
-- Temperature & fan control with overheat protection
-- Energy efficiency:each PM can be switched on\off, fan on\off + fan PWM, sleep\standby modes for main chips.
-- Network control by web-interface or android application
-- Wake-up from internal li-ion battery, and power on external PSU - perfect for use wih ATX PSU by pulling down PS_ON pin.
-- Measuring power supply\main battery voltage - you exactly know when battery low.
-
-
-## What should i do?
-
-- [x] Power Modules schematic 
-- [x] Reverse voltage protection
-- [x] Power rails schematic
-- [x] STM32 board pin assigments# KisosvetV2
-Smart LED-light for shoting photo, video, and comfort illumination in home)
 
 ## Main functionality:
 
