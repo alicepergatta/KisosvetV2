@@ -43,10 +43,23 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 - [] add external antenna for ESP8266
 - [] Write logic for manual control by encoders and buttons
 
+## Folders & files description
+
+- stm32 - Keil & STM32CubeMX projects
+  I'm using C and C++ in this project.
+- schematic - Splan schematic project
+  Splan is pretty easy tool for drawing schematic
+  * [] learn a better software
+- schematic-png - Schematic in PNG images
+- esp8266 - code for esp8266
+- documentation - Everything you need to understand how it works and "how can i make something similar"
+- Photos - photos of project realization, currently there are prototype photos
+
 ## FAQ
 
 
-
+**Q**:
+**A**:
 
 
 
