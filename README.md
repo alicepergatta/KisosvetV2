@@ -3,7 +3,7 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 
 Read [About](https://github.com/alicepergatta/KisosvetV2/wiki/About)
 
-More documentation:[Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/wiki)
+More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/wiki)
 
 ## Main functionality:
 
@@ -32,7 +32,9 @@ More documentation:[Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [x] PM on\off
 - [x] Main STM32 project code
 
+
 - [ ] Make normal CLI over UART for STM32+ESP8266 interconnect
+- [ ] Replace UART for USART?
 - [ ] Add DS18B20 functionality 
 - [ ] Add fan PWM level-shifter
 - [ ] Write fan control logic
