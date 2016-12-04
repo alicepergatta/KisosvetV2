@@ -3,7 +3,7 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 
 Read [About](https://github.com/alicepergatta/KisosvetV2/wiki/About)
 
-[Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/wiki)
+More documentation:[Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/wiki)
 
 ## Main functionality:
 
