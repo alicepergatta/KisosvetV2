@@ -3,6 +3,7 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 
 Read [About](https://github.com/alicepergatta/KisosvetV2/wiki/About)
 
+[Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/wiki)
 
 ## Main functionality:
 
@@ -54,7 +55,6 @@ Read [About](https://github.com/alicepergatta/KisosvetV2/wiki/About)
   * [ ] learn a better software
 - schematic-png - Schematic in PNG images
 - esp8266 - code for esp8266
-- documentation - Everything you need to understand how it works and "how can i make something similar"
 - Photos - photos of project realization, currently there are prototype photos
 
 ## FAQ
