@@ -1,6 +1,8 @@
 # KisosvetV2
 Smart LED-light for shoting photo, video, and comfort illumination in home)
 
+Read [About](https://github.com/alicepergatta/KisosvetV2/wiki/About)
+
 
 ## Main functionality:
 
@@ -57,7 +59,7 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 
 ## FAQ
 
-[Full FAQ](https://github.com/alicepergatta/KisosvetV2/wiki/FAQ).
+[Full FAQ](https://github.com/alicepergatta/KisosvetV2/wiki/FAQ)
 
 **Q**: Can i build own Kisosvet but with different LED's and PM's?
 
