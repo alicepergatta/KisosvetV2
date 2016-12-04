@@ -6,7 +6,7 @@ Smart LED-light for shoting photo, video, and comfort illumination in home)
 - 16-bit PWM brightness regulation, without any flickering
 - Color temperature regulation, and white color calibration
 - Different LED types for full spectre(WW + NW or WW + CW for example)
-- Flickering-free power modules and control circuitry schemati
+- Flickering-free power modules and control circuitry schematic
 - Step-down based power modules, wich can work at voltage up to 35V - in car, at home, everywhere with 3S(or more) lithium battery pack.
 - STM32 microcontroller as a "brain"
 - ESP8266 for networking functionality
