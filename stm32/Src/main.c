@@ -140,7 +140,7 @@ char buffer2[] = {"Meow! Kisosvet V2 has started \n\r"}; //greeting buffer
 char buffer3[] = {"PISOS! \n\r"}; //test buffer
 buffer_cnt = sizeof(buffer2) / sizeof(char); //count buffer size
 HAL_UART_Transmit_IT(&huart3, buffer2, buffer_cnt);
-TextToUART("OHUYET \n\r");			
+
 
 
   /* USER CODE BEGIN 2 */
@@ -155,7 +155,9 @@ TextToUART("OHUYET \n\r");
  
 int LED(); //call LED function for LED's control routines
 //9	PrintToUART(buffer1); //
-	TextToUART(buffer1);					
+	//TextToUART(buffer3);					
+	//	TextToUART("OHUYET! \n\r");	
+		PrintToUART("OHUYET! \n\r");	
 	
 //HAL_UART_Transmit_IT(&huart3, transmitBuffer, 128);
 
@@ -621,6 +623,7 @@ void TextToUART(char *text) {
 short text_cnt;
 //snprintf(text, text_cnt, "%s", promt); 
 text_cnt = sizeof(text) / sizeof(char); //count buffer size
+text_cnt = (text_cnt * 2 + 2);
 HAL_UART_Transmit_IT(&huart3, text, text_cnt);
 //text_cnt = sizeof(promt) / sizeof(char); //count buffer size
 //HAL_UART_Transmit_IT(&huart3, promt, text_cnt); //debug

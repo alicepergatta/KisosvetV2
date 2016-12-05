@@ -132,11 +132,11 @@ HAL_UART_Transmit_IT(&huart3, answer, reply_buffer_cnt);
 
 void PrintToUART(char *text) {
 //HAL_Init();
-HMX_USART3_UART_Init();	
+//HMX_USART3_UART_Init();	
 char promt[] = {"\r \n"};
 short text_cnt = sizeof(text) / sizeof(char); //count buffer size
-//snprintf(text, text_cnt, "%s", promt); 
 text_cnt = sizeof(text) / sizeof(char); //count buffer size
+text_cnt = (text_cnt * 2 + 2);
 HAL_UART_Transmit_IT(&huart3, text, text_cnt);
 //text_cnt = sizeof(*buffer1) / sizeof(char); //count buffer size
 //HAL_UART_Transmit_IT(&huart3, buffer1, text_cnt); //debug
@@ -147,13 +147,13 @@ void HMX_USART3_UART_Init(void)
 {
 
   huart3.Instance = USART3;
-  huart3.Init.BaudRate = 115200;
-  huart3.Init.WordLength = UART_WORDLENGTH_8B;
-  huart3.Init.StopBits = UART_STOPBITS_1;
-  huart3.Init.Parity = UART_PARITY_NONE;
-  huart3.Init.Mode = UART_MODE_TX_RX;
-  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+//  huart3.Init.BaudRate = 115200;
+//  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+//  huart3.Init.StopBits = UART_STOPBITS_1;
+//  huart3.Init.Parity = UART_PARITY_NONE;
+//  huart3.Init.Mode = UART_MODE_TX_RX;
+//  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+//  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
   if (HAL_UART_Init(&huart3) != HAL_OK)
   {
     Error_Handler();
