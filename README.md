@@ -52,7 +52,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 
 - stm32 - Keil & STM32CubeMX projects
   I'm using C and C++ in this project.
-- schematic - Splan schematic project
+- schematic - Splan schematic project,
   Splan is pretty easy tool for drawing schematic
   * [ ] learn a better software
 - schematic-png - Schematic in PNG images
