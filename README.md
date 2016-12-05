@@ -22,7 +22,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - Measuring power supply\main battery voltage - you exactly know when battery low.
 
 
-## What should i do?
+## TODO:
 
 - [x] Power Modules schematic 
 - [x] Reverse voltage protection
