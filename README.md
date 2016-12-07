@@ -65,7 +65,10 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 
 **Q**: Can i build own Kisosvet but with different LED's and PM's?
 
-**A**: Yes! You just need to add variables for new LED's\PM's, and if your LED's are less or more powerful - you need to change PM's circuitry(replace DC-DC converter for diffrent type or power)
+
+**A**: Yes! You just need to reconfigure hardware initialization(manually or in STM32CubeMX) add variables for new LED's\PM's, and if your LED's are less or more powerful - you need to change PM's circuitry(replace DC-DC converter for different type, or maximum power)
+If you want much bigger LED quantity - you need more powerful microcontrollers, with more timers and more pins.
+
 
 **Q**: Which DC-DC type converters can be used for PM's?
 
