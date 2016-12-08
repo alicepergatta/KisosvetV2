@@ -14,6 +14,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - Step-down based power modules, wich can work at voltage up to 35V - in car, at home, everywhere with 3S(or more) lithium battery pack.
 - STM32 microcontroller as a "brain"
 - ESP8266 for networking functionality
+- MQTT support for smart home system
 - DS18B20 as a temperature sensor for fan control logic
 - Temperature & fan control with overheat protection
 - Energy efficiency:each PM can be switched on\off, fan on\off + fan PWM, sleep\standby modes for main chips.
@@ -32,13 +33,15 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [x] PM on\off
 - [x] Main STM32 project code
 
-
+- [ ] Build firmware for ESP8266
+- [ ] Add MQTT protocol support 
 - [ ] Make normal CLI over UART for STM32+ESP8266 interconnect
 - [ ] Replace UART for USART?
 - [ ] Add DS18B20 functionality 
 - [ ] Add fan PWM level-shifter
 - [ ] Write fan control logic
 - [ ] Replace linear VREG's for step-down modules, to achieve bettter energy efficiency
+- [ ] Get better LDO VREG's
 - [ ] Write whole networking part
 - [ ] Write code for ADC(voltage measuring)
 - [ ] Write wake-up and sleep functionality code
@@ -58,7 +61,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - schematic-png - Schematic in PNG images
 - esp8266 - code for esp8266
 - Photos - photos of project realization, currently there are prototype photos
-
+- PCB - PCB layouts for Kisosvet V2 modules
 ## FAQ
 
 [Full FAQ](https://github.com/alicepergatta/KisosvetV2/wiki/FAQ)
