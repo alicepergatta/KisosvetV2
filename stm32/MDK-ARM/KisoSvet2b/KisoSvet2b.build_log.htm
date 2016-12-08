@@ -21,19 +21,21 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
 Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
-D:\STM32\KisoSvet2b\MDK-ARM\KisoSvet2b.uvprojx
+D:\git\KisosvetV2\stm32\MDK-ARM\KisoSvet2b.uvprojx
 Project File Date:  12/05/2016
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Program Files\Keil\ARM\ARMCC\Bin'
 Build target 'KisoSvet2b'
-compiling CLI.cpp...
-CLI.cpp(136): warning:  #177-D: variable "promt" was declared but never referenced
-  char promt[] = {"\r \n"};
-CLI.cpp: 1 warning, 0 errors
+compiling main.c...
+../Src/main.c(149): warning:  #177-D: variable "buffer1" was declared but never referenced
+  char buffer1[] = {"HUY! \0 \n\r"}; //test buffer
+../Src/main.c(151): warning:  #177-D: variable "buffer3" was declared but never referenced
+  char buffer3[] = {"PISOS! \n\r"}; //test buffer
+../Src/main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=8468 RO-data=292 RW-data=88 ZI-data=1344  
-"KisoSvet2b\KisoSvet2b.axf" - 0 Error(s), 1 Warning(s).
+Program Size: Code=8920 RO-data=292 RW-data=88 ZI-data=1336  
+"KisoSvet2b\KisoSvet2b.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -44,14 +46,14 @@ Package Vendor: ARM
    * Component: CORE Version: 4.3.0
 
 <h2>Collection of Component include folders:</h2>
-  D:\STM32\KisoSvet2b\MDK-ARM\RTE
+  D:\git\KisosvetV2\stm32\MDK-ARM\RTE
   C:\Program Files\Keil\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
   C:\Program Files\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>

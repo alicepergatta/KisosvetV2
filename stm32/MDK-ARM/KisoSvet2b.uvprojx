@@ -532,6 +532,11 @@
               <FileType>1</FileType>
               <FilePath>.\fputc.c</FilePath>
             </File>
+            <File>
+              <FileName>DS18B20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DS18B20.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
