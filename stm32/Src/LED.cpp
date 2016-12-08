@@ -18,10 +18,10 @@ int LED2_CAL_VALUE = 10;
 int LED3_CAL_VALUE = 10;
 int LED4_CAL_VALUE = 10;
 	//Values for external logic
-int LED1_VALUE = 57020;
-int LED2_VALUE = 57020;
-int LED3_VALUE = 57020;
-int LED4_VALUE = 57020;
+int LED1_VALUE = 59020;
+int LED2_VALUE = 59020;
+int LED3_VALUE = 59020;
+int LED4_VALUE = 59020;
 
 
 int i = 0;
