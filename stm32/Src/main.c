@@ -34,7 +34,7 @@
 #include "main.h"
 #include "stm32f1xx_hal.h"
 #include "CLI.h"
-
+#include "stdio.h"
 
 
 /* USER CODE BEGIN Includes */
@@ -47,7 +47,6 @@ ADC_HandleTypeDef hadc1;
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim2;
-TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
@@ -56,23 +55,15 @@ UART_HandleTypeDef huart3;
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
 
-	//Define blank values for UART buffers
-char transmitBuffer[128]	= {' '};
-char receiveBuffer[128] = {' '};
-const char CleanBuffer[128] = {"                    "};
-
-	//Counter variables
-short receive_buffer_cnt;
-short transmit_buffer_cnt;
 
 	//Peripherals
 short buttonState; //where the button state stored
 short PS_ON = 0;
 int FAN_PWM = 0;
-signed int temperature;
 
-short buffer_cnt;
-short buffer_cnt2;
+
+	//configuration
+short L_ECHO = 1;  //Local echo(CLI)
 
 /* USER CODE END PV */
 
@@ -84,13 +75,11 @@ static void MX_TIM4_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_RTC_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_TIM3_Init(void);
-int LED(int, int);
 static void MX_USART3_UART_Init(void);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-void TextToUART(char *text);
-uint8_t ds_start_convert_single(uint8_t PinNumb);
-signed int ds_read_temperature(uint8_t PinNumb);
+int LED(int, int);
+void LED_SW(void);
+void CReturnCmd(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -122,37 +111,22 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_TIM2_Init();
-	MX_TIM3_Init();
   MX_USART3_UART_Init();
+	__HAL_UART_ENABLE_IT(&huart3, UART_IT_RXNE);
 	
-	
-	//TIM4 init
+	//TIM4 start(LED's PWM)
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
 HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 
-	//TIM2 init
+	//TIM2 start (FAN PWM)
 HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-
-
-	//TIM3 init
-HAL_TIM_Base_Start(&htim3);
-//TIM3->CR1 |= TIM_CR1_CEN;
-//TIM3->CNT = 0;
-//HAL_UART_Transmit_IT(&huart3, transmitBuffer, 128);
-
 
 
 
 	//Sending greeting in terminal once after reset
-char buffer1[] = {"HUY! \0 \n\r"}; //test buffer
-char buffer2[] = {"Meow! Kisosvet V2 has started \n\r"}; //greeting buffer
-char buffer3[] = {"PISOS! \n\r"}; //test buffer
-buffer_cnt = sizeof(buffer2) / sizeof(char); //count buffer size
-HAL_UART_Transmit_IT(&huart3, buffer2, buffer_cnt);
-
-
+printf("Meow! Kisosvet V2 has started \n\r");
 
   /* USER CODE BEGIN 2 */
 
@@ -164,103 +138,39 @@ HAL_UART_Transmit_IT(&huart3, buffer2, buffer_cnt);
   {
 
  
-		
-		//DS18B20 get temperature 
-//ds_start_convert_single(1);     //запустить измерение температуры                              /
-//HAL_Delay(100);                 //время для окончания преобразования
-//temperature = ds_read_temperature(1);   //прочитать результат измерения
-//char out[8];
-//out[7] = temperature + '0';
-//TextToUART(out);
-		
-//HAL_UART_Transmit_IT(&huart3, transmitBuffer, 128);
+LED_SW();	//call LED on\off function
+CReturnCmd();
 
-	
+	//Count PWM values
+LED1_PWM = LED(LED1_VALUE, LED1_CAL_VALUE);
+LED2_PWM = LED(LED2_VALUE, LED2_CAL_VALUE);
+LED3_PWM = LED(LED3_VALUE, LED3_CAL_VALUE);
+LED4_PWM = LED(LED4_VALUE, LED4_CAL_VALUE);
+
+  //Set PWM values into TIM4 registers
+TIM4->CCR1 = LED1_PWM;
+TIM4->CCR2 = LED2_PWM;
+TIM4->CCR3 = LED3_PWM;
+TIM4->CCR4 = LED4_PWM;
+		
+		//Set PWM value for fan
+TIM2->CCR1 = FAN_PWM;
+		
 buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
-buffer_cnt = sizeof(buffer2) / sizeof(char);
 		
-receive_buffer_cnt = sizeof(receiveBuffer) / sizeof(char);
-transmit_buffer_cnt = sizeof(receiveBuffer) / sizeof(char);
-
-		//LED1-4 ON\OFF by variables
-switch(LED1_EN)
-{
-	case 1:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
-	break;
-	case 0:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-	break;
-	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
-	default:
-break;
-}
-
-
-switch(LED2_EN)
-{
-	case 1:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
-//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
-	break;
-	case 0:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
-	break;
-//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
-	default:
-break;
-}
-
-
-switch(LED3_EN)
-{
-	case 1:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
-	break;
-	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
-	case 0:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
-	break;
-	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
-	default:
-break;
-}
-
-
-switch(LED4_EN)
-{
-	case 1:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
-	break;
-	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
-	case 0:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
-	break;
-	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
-	default:
-break;
-}
-		
-		
-
-
 	
 
 			//switch for button actions
 switch (buttonState)
 {	
 	case 0:
-		//char receiveBuffer[] = {"sosi"};
-//		
-	//receive_buffer_cnt = sizeof(receiveBuffer) / sizeof(unsigned char);
-	//HAL_UART_Transmit_IT(&huart3, receiveBuffer, receive_buffer_cnt);
-	//transmit_buffer_cnt = sizeof(transmitBuffer) / sizeof(unsigned char);
-	//HAL_UART_Transmit_IT(&huart3, transmitBuffer, transmit_buffer_cnt);
+	//printf("Чё? \n\r");
+	
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+	//HAL_UART_Transmit_IT(&huart3, receiveBuffer, receiveBuffer_cnt);
+	//printf(receiveBuffer);
 		break;
 	case 1:
-	//	transmitBuffer[1] = 0;
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 		break;
 	default:
@@ -283,24 +193,6 @@ HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 break;
 }
 
-
-
-
-
-//Count PWM values
-LED1_PWM = LED(LED1_VALUE, LED1_CAL_VALUE);
-LED2_PWM = LED(LED2_VALUE, LED2_CAL_VALUE);
-LED3_PWM = LED(LED3_VALUE, LED3_CAL_VALUE);
-LED4_PWM = LED(LED4_VALUE, LED4_CAL_VALUE);
-
-  //Set PWM values into TIM4 registers
-TIM4->CCR1 = LED1_PWM;
-TIM4->CCR2 = LED2_PWM;
-TIM4->CCR3 = LED3_PWM;
-TIM4->CCR4 = LED4_PWM;
-		
-		//Set PWM value for fan
-TIM2->CCR1 = FAN_PWM;
 
 
   /* USER CODE BEGIN 3 */
@@ -452,39 +344,6 @@ static void MX_TIM2_Init(void)
   HAL_TIM_MspPostInit(&htim2);
 
 }
-
-/* TIM3 init function */
-static void MX_TIM3_Init(void)
-{
-
-  TIM_ClockConfigTypeDef sClockSourceConfig;
-  TIM_MasterConfigTypeDef sMasterConfig;
-	htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 7;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 1000;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-}
-
-
 
 /* TIM4 init function */
 static void MX_TIM4_Init(void)
@@ -664,15 +523,3 @@ void assert_failed(uint8_t* file, uint32_t line)
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 
 
-
-void TextToUART(char *text) {
-//char promt[] = {"\r \n"};
-short text_cnt;
-//snprintf(text, text_cnt, "%s", promt); 
-text_cnt = sizeof(text) / sizeof(char); //count buffer size
-text_cnt = (text_cnt * 2 + 2);
-HAL_UART_Transmit_IT(&huart3, text, text_cnt);
-//text_cnt = sizeof(promt) / sizeof(char); //count buffer size
-//HAL_UART_Transmit_IT(&huart3, promt, text_cnt); //debug
-//return;
-}

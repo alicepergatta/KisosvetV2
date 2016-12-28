@@ -18,10 +18,10 @@ int LED2_CAL_VALUE = 10;
 int LED3_CAL_VALUE = 10;
 int LED4_CAL_VALUE = 10;
 	//Values for external logic
-int LED1_VALUE = 59020;
-int LED2_VALUE = 59020;
-int LED3_VALUE = 59020;
-int LED4_VALUE = 59020;
+int LED1_VALUE = 57020;
+int LED2_VALUE = 57020;
+int LED3_VALUE = 57020;
+int LED4_VALUE = 57020;
 
 
 int i = 0;
@@ -36,4 +36,66 @@ int LED(int VAL, int CAL)  //Function for setting corrected PWM values
   return PWM;
 	}	
 
+void LED_SW() //Set LED's(PM's) on or off by variable values
+{
 	
+		//LED1-4 ON\OFF by variables
+switch(LED1_EN)
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
+	break;
+	case 0:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+	break;
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
+	default:
+break;
+}
+
+
+switch(LED2_EN)
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
+	break;
+	case 0:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+	break;
+//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+	default:
+break;
+}
+
+
+switch(LED3_EN)
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
+	break;
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
+	case 0:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET);
+	break;
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
+	default:
+break;
+}
+
+
+switch(LED4_EN)
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+	break;
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
+	case 0:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+	break;
+	//HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_12);
+	default:
+break;
+}
+	}

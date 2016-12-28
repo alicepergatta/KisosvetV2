@@ -4332,9 +4332,6 @@ __weak void HAL_TIM_TriggerCallback(TIM_HandleTypeDef *htim)
    */
 }
 
-
-
-
 /**
   * @brief  Timer error callback in non blocking mode 
   * @param  htim : TIM handle

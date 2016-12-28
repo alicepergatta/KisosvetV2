@@ -34,6 +34,8 @@
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
+#include "main.h"
+#include <stdbool.h>
 
 /* USER CODE BEGIN 0 */
 
@@ -41,6 +43,16 @@
 
 /* External variables --------------------------------------------------------*/
 extern UART_HandleTypeDef huart3;
+char receiveBuffer[228] = {""};
+short receiveBuffer_cnt = 0;
+bool stringComplete = false;
+
+#define RXBUFSIZE 200
+typedef struct
+{
+char RxBuff[RXBUFSIZE]; //receive buffer
+short RxCnt; //receive counter
+} Serial;
 
 /******************************************************************************/
 /*            Cortex-M3 Processor Interruption and Exception Handlers         */ 
@@ -187,9 +199,33 @@ void SysTick_Handler(void)
 /**
 * @brief This function handles USART3 global interrupt.
 */
+Serial CLI;
+char buffer;
 void USART3_IRQHandler(void)
+
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
+if (USART3->SR & USART_SR_RXNE)
+{
+USART3->SR&=~USART_SR_RXNE;
+if(CLI.RxCnt>=(char)(RXBUFSIZE-1))
+CLI.RxCnt=0; //start array position counter from zero
+buffer = USART3->DR; //read symbol from register to char variable
+switch(L_ECHO) //echo switch
+{ 
+	case 1: //Echo mode
+USART3->DR=buffer;
+break;
+	default:
+break;
+}
+CLI.RxBuff[CLI.RxCnt] = buffer; //copy symbol to array element
+receiveBuffer[receiveBuffer_cnt] = buffer; //copy symbol to array element(global)
+CLI.RxCnt++; //increment counter of array position
+receiveBuffer_cnt++; //increment counter of array position
+if (buffer == '\r') { //detect carrier return
+stringComplete = true;
+}
 
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);
@@ -201,4 +237,4 @@ void USART3_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+}/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

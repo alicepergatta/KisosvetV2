@@ -36,7 +36,7 @@
   /* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
@@ -79,6 +79,8 @@
 #define LED4_PWM_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
+
+
 	//PWM values for each LED PM
 extern int LED1_PWM;
 extern int LED2_PWM;
@@ -111,9 +113,14 @@ extern short PS_ON;
 
 	//Buffers for UART
 extern char transmitBuffer[128];
-extern char receiveBuffer[128];
+extern char receiveBuffer[228];
+extern short receiveBuffer_cnt;
 extern char ParseBuffer[128];
 extern const char CleanBuffer[128];
+extern short L_ECHO;
+extern bool stringComplete;
+
+
 //extern char transmitBuffer[1];
 //extern char receiveBuffer[1];
 
