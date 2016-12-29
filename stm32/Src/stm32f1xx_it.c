@@ -46,6 +46,7 @@ extern UART_HandleTypeDef huart3;
 char receiveBuffer[228] = {""};
 short receiveBuffer_cnt = 0;
 bool stringComplete = false;
+bool startNewLine = false;
 
 #define RXBUFSIZE 200
 typedef struct
@@ -205,6 +206,10 @@ void USART3_IRQHandler(void)
 
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
+//	if (startNewLine == true) 
+//		{ //CLI.RxCnt = 0;
+//			//receiveBuffer_cnt = 0;			
+//	}
 if (USART3->SR & USART_SR_RXNE)
 {
 USART3->SR&=~USART_SR_RXNE;

@@ -8,8 +8,12 @@
 
 //extern char receiveBuffer[228];
 //extern short receiveBuffer_cnt;
-char c_return = '\r';
-
+const char c_return = '\r';
+char n_line = '\n';
+char parsed_line[200];
+short parsed_line_length = 0;
+short receiveBuffer_length = 0;
+char *pisos = receiveBuffer;
 
 void ParseCmdString(void);
 void CReturnCmd(void);
@@ -17,13 +21,18 @@ void CReturnCmd(void);
 void CReturnCmd(void) {
 
 if(stringComplete == true) {
+	//receiveBuffer[receiveBuffer_cnt++] = 0;
 	printf("\n\r"); //Carrier return + newline
 	stringComplete = false; //set to false
+	startNewLine = true;
 	ParseCmdString(); //call function
 	}
 }
 
 void ParseCmdString(void) {
-	//printf("Your bunny wrote! \n\r"); //debug
-	
+	receiveBuffer_length = strlen(receiveBuffer);
+	parsed_line_length = strlen(parsed_line);
+//parsed_line = 
+		 //printf( "%i \n\r", receiveBuffer_length);
+		startNewLine = false;
 }

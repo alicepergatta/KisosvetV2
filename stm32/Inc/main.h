@@ -119,6 +119,7 @@ extern char ParseBuffer[128];
 extern const char CleanBuffer[128];
 extern short L_ECHO;
 extern bool stringComplete;
+extern bool startNewLine;
 
 
 //extern char transmitBuffer[1];
