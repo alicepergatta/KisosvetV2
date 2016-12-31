@@ -21,7 +21,6 @@ void CReturnCmd(void);
 void CReturnCmd(void) {
 
 if(stringComplete == true) {
-	//receiveBuffer[receiveBuffer_cnt++] = 0;
 	printf("\n\r"); //Carrier return + newline
 	stringComplete = false; //set to false
 	startNewLine = true;
