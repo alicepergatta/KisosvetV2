@@ -63,7 +63,8 @@ int FAN_PWM = 0;
 
 
 	//configuration
-short L_ECHO = 1;  //Local echo(CLI)
+short L_ECHO = 1;  //Local echo(CLI), to see what you type
+short CMD_ANSWER = 1; //Write reply on command or not
 
 /* USER CODE END PV */
 

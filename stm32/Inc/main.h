@@ -117,10 +117,12 @@ extern char receiveBuffer[228];
 extern short receiveBuffer_cnt;
 extern char ParseBuffer[128];
 extern const char CleanBuffer[128];
-extern short L_ECHO;
+
 extern bool stringComplete;
 extern bool startNewLine;
 
+extern short L_ECHO;
+extern short CMD_ANSWER;
 
 //extern char transmitBuffer[1];
 //extern char receiveBuffer[1];

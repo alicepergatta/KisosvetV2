@@ -36,10 +36,16 @@
 #include "stm32f1xx_it.h"
 #include "main.h"
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
+
+void string_wipe(char *stringtowipe); //wipe function definition
+
 
 /* External variables --------------------------------------------------------*/
 extern UART_HandleTypeDef huart3;
@@ -205,17 +211,13 @@ char buffer;
 void USART3_IRQHandler(void)
 
 {
-  /* USER CODE BEGIN USART3_IRQn 0 */
-//	if (startNewLine == true) 
-//		{ //CLI.RxCnt = 0;
-//			//receiveBuffer_cnt = 0;			
-//	}
-if (USART3->SR & USART_SR_RXNE)
+	if (USART3->SR & USART_SR_RXNE)
 {
-USART3->SR&=~USART_SR_RXNE;
-if(CLI.RxCnt>=(char)(RXBUFSIZE-1))
-CLI.RxCnt=0; //start array position counter from zero
-buffer = USART3->DR; //read symbol from register to char variable
+	USART3->SR&=~USART_SR_RXNE;
+	if(CLI.RxCnt>=(char)(RXBUFSIZE-1))
+	CLI.RxCnt=0; //start array position counter from zero
+	buffer = USART3->DR; //read symbol from register to char variable
+
 switch(L_ECHO) //echo switch
 { 
 	case 1: //Echo mode
@@ -228,8 +230,12 @@ CLI.RxBuff[CLI.RxCnt] = buffer; //copy symbol to array element
 receiveBuffer[receiveBuffer_cnt] = buffer; //copy symbol to array element(global)
 CLI.RxCnt++; //increment counter of array position
 receiveBuffer_cnt++; //increment counter of array position
+
 if (buffer == '\r') { //detect carrier return
-stringComplete = true;
+stringComplete = true; //set stringComplete to true
+memset(CLI.RxBuff,0,CLI.RxCnt); //clear primary receive buffer
+			CLI.RxCnt = 0;
+			receiveBuffer_cnt = 0;
 }
 
   /* USER CODE END USART3_IRQn 0 */

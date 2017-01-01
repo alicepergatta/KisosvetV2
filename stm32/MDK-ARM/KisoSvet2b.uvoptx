@@ -201,9 +201,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>212</LineNumber>
+          <LineNumber>217</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226252</Address>
+          <Address>134226318</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -212,14 +212,14 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>../Src/stm32f1xx_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\KisoSvet2b\../Src/stm32f1xx_it.c\212</Expression>
+          <Expression>\\KisoSvet2b\../Src/stm32f1xx_it.c\217</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>213</LineNumber>
+          <LineNumber>216</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226262</Address>
+          <Address>134226310</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -228,23 +228,39 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>../Src/stm32f1xx_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\KisoSvet2b\../Src/stm32f1xx_it.c\213</Expression>
+          <Expression>\\KisoSvet2b\../Src/stm32f1xx_it.c\216</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>216</LineNumber>
+          <LineNumber>214</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
+          <Address>134226302</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>../Src/stm32f1xx_it.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\KisoSvet2b\../Src/stm32f1xx_it.c\214</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>224</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134226354</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../Src/stm32f1xx_it.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\KisoSvet2b\../Src/stm32f1xx_it.c\224</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -258,12 +274,62 @@
           <WinNumber>1</WinNumber>
           <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\buffer</ItemText>
         </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\CLI.cpp\parsed_line</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\receiveBuffer</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\CLI.cpp\command</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\CLI.cpp\parsed_line_length,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\CLI.cpp\ret_pos,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\CLI.cpp\receiveBuffer_length,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\CLI.RxCnt,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\receiveBuffer_cnt,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\startNewLine,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
           <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\CLI.RxCnt</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>\\KisoSvet2b\CLI.cpp\ptr1,0x10</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
