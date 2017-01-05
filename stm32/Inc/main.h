@@ -99,6 +99,8 @@ extern int LED4_VALUE;
 
 	//Maximum PWM value, for testing purposes
 extern int MAX_PWM;
+extern int MIN_PWM;
+extern short buttonState; //where the button state stored
 
 	//ON-OFF PM's by those values
 extern int LED1_EN;

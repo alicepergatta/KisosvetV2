@@ -69,6 +69,7 @@ short CMD_ANSWER = 1; //Write reply on command or not
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
+void Auxiliary(void);
 void SystemClock_Config(void);
 void Error_Handler(void);
 static void MX_GPIO_Init(void);
@@ -78,7 +79,7 @@ static void MX_RTC_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART3_UART_Init(void);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
-int LED(int, int);
+int LED_CVAL(int, int);
 void LED_SW(void);
 void CReturnCmd(void);
 
@@ -140,61 +141,8 @@ printf("Meow! Kisosvet V2 has started \n\r");
 
  
 LED_SW();	//call LED on\off function
-CReturnCmd();
-
-	//Count PWM values
-LED1_PWM = LED(LED1_VALUE, LED1_CAL_VALUE);
-LED2_PWM = LED(LED2_VALUE, LED2_CAL_VALUE);
-LED3_PWM = LED(LED3_VALUE, LED3_CAL_VALUE);
-LED4_PWM = LED(LED4_VALUE, LED4_CAL_VALUE);
-
-  //Set PWM values into TIM4 registers
-TIM4->CCR1 = LED1_PWM;
-TIM4->CCR2 = LED2_PWM;
-TIM4->CCR3 = LED3_PWM;
-TIM4->CCR4 = LED4_PWM;
-		
-		//Set PWM value for fan
-TIM2->CCR1 = FAN_PWM;
-		
-buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
-		
-	
-
-			//switch for button actions
-switch (buttonState)
-{	
-	case 0:
-	//printf("Чё? \n\r");
-	
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
-	//HAL_UART_Transmit_IT(&huart3, receiveBuffer, receiveBuffer_cnt);
-	//printf(receiveBuffer);
-		break;
-	case 1:
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-		break;
-	default:
-		break;
-}
-	
-	
-	
-
-		//switch for PS-ON ATX PSU
-switch(PS_ON)
-{
-	case 1:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
-	break;
-	case 0:
-HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
-	break;
-	default:
-break;
-}
-
-
+CReturnCmd(); //CLI functions
+Auxiliary(); //Periferials function
 
   /* USER CODE BEGIN 3 */
 

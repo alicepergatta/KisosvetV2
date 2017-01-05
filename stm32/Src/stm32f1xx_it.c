@@ -231,7 +231,7 @@ receiveBuffer[receiveBuffer_cnt] = buffer; //copy symbol to array element(global
 CLI.RxCnt++; //increment counter of array position
 receiveBuffer_cnt++; //increment counter of array position
 
-if (buffer == '\r') { //detect carrier return
+if (buffer == '\r' || CLI.RxCnt == 200) { //detect carrier return
 stringComplete = true; //set stringComplete to true
 memset(CLI.RxBuff,0,CLI.RxCnt); //clear primary receive buffer
 			CLI.RxCnt = 0;

@@ -5,6 +5,8 @@
 "kisosvet2b\led.o"
 "kisosvet2b\cli.o"
 "kisosvet2b\serial.o"
+"kisosvet2b\auxiliary.o"
+"kisosvet2b\ds18b20.o"
 "kisosvet2b\system_stm32f1xx.o"
 "kisosvet2b\stm32f1xx_hal_gpio.o"
 "kisosvet2b\stm32f1xx_hal_pwr.o"

@@ -527,6 +527,16 @@
               <FileType>1</FileType>
               <FilePath>.\serial.c</FilePath>
             </File>
+            <File>
+              <FileName>Auxiliary.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Auxiliary.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>DS18B20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\DS18B20.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
