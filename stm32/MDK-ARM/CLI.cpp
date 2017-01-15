@@ -163,13 +163,13 @@ void GetCommands(void) {
 }
 
 
-void char2short(char* pchar, short* pshort) //test 
+void char2short(char* pchar, short* pshort) //char to short conversion function
 {
 	*pshort = strtol(pchar, NULL, 10);
 
 }
 
-void char2int(char* pchar, int* pint) //test 
+void char2int(char* pchar, int* pint) //char to int conversion function
 {
 	*pint = strtol(pchar, NULL, 10);
 

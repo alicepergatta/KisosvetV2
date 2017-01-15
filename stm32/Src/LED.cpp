@@ -30,7 +30,7 @@ int LED4_VALUE = 57020;
 
 int i = 0;
 int MAX_PWM = 60400;
-int MIN_PWM = 40000;
+int MIN_PWM = 47000;
 
 void char2int(char* pchar, int* pint);
 void LED_SW(void);
@@ -39,13 +39,13 @@ int LED_CVAL(int VAL, int CAL);
 
 void LED_CLI(char *led_num, char *led_en, char *led_pwm)
 {
-	int led_num_int;
-	int led_en_int;
-	int led_pwm_int;
+	int led_num_int; //LED number variable
+	int led_en_int; //ON\OFF variable
+	int led_pwm_int; //OWM value variable
 //	char2int(led_num, &led_num_int);
 //	char2int(led_en, &led_en_int);
 //	char2int(led_pwm, &led_pwm_int);
-	short error = 0;
+	short error = 0; //Error flag
 	
 	short no_en_value = 0; //no convert char to int
 	short no_lednum_value = 0; //no convert char to int
@@ -110,31 +110,51 @@ switch(no_lednum_value)
 	break;
 	}
 
-	switch (led_num_int)
+	switch (led_num_int) //Process argument values
 	{
 		case 1:
-				if(no_pwm_value == 0) {
-			LED1_VALUE = led_pwm_int;
+				if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+				LED1_VALUE = led_pwm_int; //PWM value is argument variable
+					}
+				else {
+					break;
 				}
-			LED1_EN = led_en_int;
+			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+			LED1_EN = led_en_int; //EN value is argument variable
+			}
 		break;
 		case 2:
-				if(no_pwm_value == 0) {
-			LED2_VALUE = led_pwm_int;
+					if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+				LED2_VALUE = led_pwm_int; //PWM value is argument variable
+					}
+				else {
+					break;
 				}
-			LED2_EN = led_en_int;
+			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+			LED2_EN = led_en_int; //EN value is argument variable
+			}
 		break;
 		case 3:
-					if(no_pwm_value == 0) {
-			LED3_VALUE = led_pwm_int;
+					if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+				LED3_VALUE = led_pwm_int; //PWM value is argument variable
+					}
+				else {
+					break;
 				}
-			LED3_EN = led_en_int;
+			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+			LED3_EN = led_en_int; //EN value is argument variable
+			}
 		break;
 		case 4:
-					if(no_pwm_value == 0) {
-			LED4_VALUE = led_pwm_int;
+					if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+				LED4_VALUE = led_pwm_int; //PWM value is argument variable
+					}
+				else {
+					break;
 				}
-			LED4_EN = led_en_int;
+			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+			LED4_EN = led_en_int; //EN value is argument variable
+			}
 		break;
 		case 228: //set parameters for ALL LED's
 			LED1_VALUE = led_pwm_int;
