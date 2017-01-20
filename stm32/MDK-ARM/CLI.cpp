@@ -112,6 +112,7 @@ void SliceCmd(void) //function wich provide cutting seperate words to command an
 		case 0:
 		//strncpy(command, token, strlen(token) + 1); //copy command part of parsed_line
 		strncpy(command, token, strlen(token)); //copy command part of parsed_line
+		break;
 		case 1:
 		//strncpy(argument1, token, strlen(token) + 1);
 		strncpy(argument1, token, strlen(token));
@@ -153,13 +154,17 @@ void ClearCmdAndArguments(void) //function which clears parsed command and argum
 
 void GetCommands(void) {
 	
-	if(strncmp(command, "LED", 3) == 0) {
-		LED_CLI(argument1, argument2, argument3);
-		}
-	
+		if(strncmp(command, "LED", 3) == 0) {
+			LED_CLI(argument1, argument2, argument3);
+			}
+		
 		if(strncmp(command, "PSU", 3) == 0) { //PSU on\off command
 		PSU_SWITCH(argument1);
 		}
+//		else {
+//			printf("Uknown command \n\r"); //Carrier return + newline,
+//		}
+			
 }
 
 

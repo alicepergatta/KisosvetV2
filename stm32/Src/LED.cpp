@@ -34,7 +34,34 @@ int MIN_PWM = 47000;
 
 void char2int(char* pchar, int* pint);
 void LED_SW(void);
+int LEDnumValue(int);
 int LED_CVAL(int VAL, int CAL); 
+
+int LEDnumValue(int lednum)
+{
+	int value;
+	
+	if((lednum != 0) && (lednum != NULL)) {
+		switch (lednum)
+		{
+		case 1:
+			value = LED1_VALUE;
+			break;
+		case 2:
+			value = LED2_VALUE;
+			break;
+		case 3:
+			value = LED3_VALUE;
+			break;
+		case 4:
+			value = LED4_VALUE;
+			break;
+		default:
+			break;
+		}
+	}
+	return value;
+}
 
 
 void LED_CLI(char *led_num, char *led_en, char *led_pwm)
@@ -51,34 +78,50 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm)
 	short no_lednum_value = 0; //no convert char to int
 	short no_pwm_value = 0; //no convert char to int
 	
-	if(strncmp(led_num, "ALL", 3) == 0 ) { //Set all LED's ON
+	if (strncmp(led_num, "ALL", 3) == 0 ) { //Set all LED's ON
 		//led_en_int = 1;
 		led_num_int = 228;
 		no_lednum_value = 1;
 		}
-	if(strncmp(led_en, "ON", 2) == 0 ) { //Set all LED's ON
+	if (strncmp(led_en, "ON", 2) == 0 ) { //Set LED ON
 		led_en_int = 1;
 		no_en_value = 1;
 		}
-	if(strncmp(led_en, "OFF", 3) == 0 ) { //Set all LED's ON
+	if (strncmp(led_en, "OFF", 3) == 0 ) { //Set LED OFF
 		led_en_int = 0;
 		no_en_value = 1;
 		}
-	if(strncmp(led_pwm, "MAX", 3) == 0) { //Set all LED's ON
-		LED1_VALUE = LED2_VALUE = LED3_VALUE = LED4_VALUE = MAX_PWM;
+	if ((strncmp(led_pwm, "MAX", 3) == 0) && (strncmp(led_num, "ALL", 3) == 0 )) { //If brightness arg is MAX and lednum arg is ALL
+		LED1_VALUE = LED2_VALUE = LED3_VALUE = LED4_VALUE = MAX_PWM; //Set all LED's brightness to max
 		led_pwm_int = MAX_PWM;
 		no_pwm_value = 1;
 		}
-	if(strncmp(led_pwm, "MIN", 3) == 0) { //Set all LED's ON
-		LED1_VALUE = LED2_VALUE = LED3_VALUE = LED4_VALUE = MIN_PWM;
+	if (strncmp(led_pwm, "MAX", 3) == 0) { //Set LED brightness to max
+		led_pwm_int = MAX_PWM;
+		no_pwm_value = 1;
+		}
+	if ((strncmp(led_pwm, "MIN", 3) == 0) && (strncmp(led_num, "ALL", 3) == 0 )) { //If brightness arg is MIN and lednum arg is ALL
+		LED1_VALUE = LED2_VALUE = LED3_VALUE = LED4_VALUE = MIN_PWM; //Set all LED's brightness to min
 		led_pwm_int = MIN_PWM;
 		no_pwm_value = 1;
 		}
-//	if(led_pwm == NULL) { //Set all LED's ON
-//		LED1_VALUE = LED2_VALUE = LED3_VALUE = LED4_VALUE = MAX_PWM;
-//		led_pwm_int = MIN_PWM;
+	if (strncmp(led_pwm, "MIN", 3) == 0) { //Set LED brightness to min
+		led_pwm_int = MIN_PWM;
+		no_pwm_value = 1;
+		}
+//	if (strncmp(led_pwm, "+", 1) == 0) { //Set LED brightness to min
+//		led_pwm_int = LEDnumValue(led_num) + 10;
 //		no_pwm_value = 1;
 //		}
+//	if (strncmp(led_pwm, "++", 2) == 0) { //Set LED brightness to min
+//		led_pwm_int = LEDnumValue(led_num) + 100;
+//		no_pwm_value = 1;
+//		}
+//	if (strncmp(led_pwm, "+++", 3) == 0) { //Set LED brightness to min
+//		led_pwm_int = LEDnumValue(led_num) + 1000;
+//		no_pwm_value = 1;
+//		}
+
 switch(no_pwm_value) 
 	{
 	case 0:
@@ -113,50 +156,38 @@ switch(no_lednum_value)
 	switch (led_num_int) //Process argument values
 	{
 		case 1:
-				if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+				if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED1_VALUE = led_pwm_int; //PWM value is argument variable
 					}
-				else {
-					break;
-				}
-			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+		if (no_en_value == 0) { //If no text value and value is not null
 			LED1_EN = led_en_int; //EN value is argument variable
 			}
 		break;
 		case 2:
-					if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+					if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED2_VALUE = led_pwm_int; //PWM value is argument variable
 					}
-				else {
-					break;
-				}
-			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+			if (no_en_value == 0) { //If no text value and value is not null
 			LED2_EN = led_en_int; //EN value is argument variable
 			}
 		break;
 		case 3:
-					if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+					if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED3_VALUE = led_pwm_int; //PWM value is argument variable
 					}
-				else {
-					break;
-				}
-			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+		if (no_en_value == 0) { //If no text value and value is not null
 			LED3_EN = led_en_int; //EN value is argument variable
 			}
 		break;
 		case 4:
-					if((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+					if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED4_VALUE = led_pwm_int; //PWM value is argument variable
 					}
-				else {
-					break;
-				}
-			if((no_en_value == 0) && (led_en_int != NULL)) { //If no text value and value is not null
+		if (no_en_value == 0) { //If no text value and value is not null
 			LED4_EN = led_en_int; //EN value is argument variable
 			}
 		break;
-		case 228: //set parameters for ALL LED's
+		case 228: //set same parameters for ALL LED's
 			LED1_VALUE = led_pwm_int;
 			LED1_EN = led_en_int;
 			LED2_VALUE = led_pwm_int;
