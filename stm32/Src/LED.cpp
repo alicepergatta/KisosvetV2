@@ -288,7 +288,8 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		case 0:
 		old_led_pwm_value = led_pwm_int;
 		char2int(led_pwm, &led_pwm_int); //If PWM value greater than 65535 and less or equals zero 
-		if ((led_pwm_int >= 65535) || (led_pwm_int == NULL)) //FIX
+		//if ((led_pwm_int >= 65535) || (led_pwm_int == NULL)) //FIX
+		if (led_pwm_int >= 65535) //FIX
 			{ 
 				error = 1; //error
 				led_pwm_int = old_led_pwm_value;
@@ -346,7 +347,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) + 10;
 		LED3_VALUE = LED_ValuebyNum(3) + 10;
 		LED4_VALUE = LED_ValuebyNum(4) + 10;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 	
 		}
 	if (strncmp(led_pwm, "+2", 2) == 0)  //
@@ -355,7 +356,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) + 100;
 		LED3_VALUE = LED_ValuebyNum(3) + 100;
 		LED4_VALUE = LED_ValuebyNum(4) + 100;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		
 		}
 	if (strncmp(led_pwm, "+3", 2) == 0)  //
@@ -364,7 +365,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) + 1000;
 		LED3_VALUE = LED_ValuebyNum(3) + 1000;
 		LED4_VALUE = LED_ValuebyNum(4) + 1000;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		
 		}
 	if (strncmp(led_pwm, "+4", 2) == 0)  //
@@ -373,7 +374,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) + 10000;
 		LED3_VALUE = LED_ValuebyNum(3) + 10000;
 		LED4_VALUE = LED_ValuebyNum(4) + 10000;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		
 		}
 	
@@ -383,7 +384,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) - 10;
 		LED3_VALUE = LED_ValuebyNum(3) - 10;
 		LED4_VALUE = LED_ValuebyNum(4) - 10;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		
 		}
 	if (strncmp(led_pwm, "-2", 2) == 0)  //
@@ -392,7 +393,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) - 100;
 		LED3_VALUE = LED_ValuebyNum(3) - 100;
 		LED4_VALUE = LED_ValuebyNum(4) - 100;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		
 		}
 	if (strncmp(led_pwm, "-3", 2) == 0)  //
@@ -401,7 +402,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) - 1000;
 		LED3_VALUE = LED_ValuebyNum(3) - 1000;
 		LED4_VALUE = LED_ValuebyNum(4) - 1000;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		
 		}
 	if (strncmp(led_pwm, "-4", 2) == 0)  //
@@ -411,12 +412,12 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		LED2_VALUE = LED_ValuebyNum(2) - 10000;
 		LED3_VALUE = LED_ValuebyNum(3) - 10000;
 		LED4_VALUE = LED_ValuebyNum(4) - 10000;
-		//no_pwm_value = 0;
+		no_pwm_value = 2;
 		printf("LED1 VALUE AFTER = %i\n\r", LED1_VALUE); //FIX
 		
 		}
 	
-		if (led_pwm_int != NULL) 
+		if ((led_pwm_int != NULL) && (no_pwm_value != 2))
 		{
 			LED1_VALUE = led_pwm_int;
 			LED2_VALUE = led_pwm_int;
