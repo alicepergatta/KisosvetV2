@@ -8,6 +8,13 @@
 
 
 void PSU_SWITCH(char *arg);
+void LED_CLI(char *led_num, char *led_en, char *led_pwm);
+
+
+short btn_state = 0;
+ char arg1[20] = "0";
+ char arg2[20] = "0";
+ char arg3[20] = "0";
 
 void Auxiliary(void)
 {
@@ -25,6 +32,25 @@ switch (buttonState)
 {	
 	case 0:
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+	printf("Meow! Button pressed. \n\r");
+	if (btn_state == 0) 
+		{
+			strcpy(arg1, "ALL");
+			strcpy(arg2, "ON");
+			strcpy(arg3, "MIN");
+		LED_CLI(arg1, arg2, arg3);
+		btn_state = 1;
+		HAL_Delay(1000);
+		}
+	if (btn_state == 1) 
+		{
+			strcpy(arg1, "ALL");
+			strcpy(arg2, "OFF");
+			strcpy(arg3, "MIN");
+		LED_CLI(arg1, arg2, arg3);
+		btn_state = 0;
+		HAL_Delay(1000);
+		}
 		break;
 	case 1:
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);

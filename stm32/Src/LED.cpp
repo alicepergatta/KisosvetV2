@@ -16,10 +16,11 @@ int LED1_EN = 0;
 int LED2_EN = 0;
 int LED3_EN = 0;
 int LED4_EN = 0;
+
 	//Calibration values as addition to hardware calibration
 int LED1_CAL_VALUE = 1000;
 int LED2_CAL_VALUE = 1000;
-int LED3_CAL_VALUE = 2200;
+int LED3_CAL_VALUE = 3200;
 int LED4_CAL_VALUE = 1000;
 	//Calibration signs
 char LED1_CAL_SIGN = '-';
@@ -36,6 +37,9 @@ int LED4_VALUE = 57020;
 int i = 0;
 int MAX_PWM = 60400;
 int MIN_PWM = 51000;
+
+int old_led_pwm_value = 0;
+int old_led_en_value = 0;
 
 void char2int(char* pchar, int* pint);
 void LED_SW(void);
@@ -130,9 +134,9 @@ int LED_StatebyNum(int lednum) //Returns ON\OFF state by LED number
 
 void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interface functions
 {
-	int led_num_int; //LED number variable
-	int led_en_int; //ON\OFF variable
-	int led_pwm_int; //OWM value variable
+	int led_num_int = 0; //LED number variable
+	int led_en_int = 0; //ON\OFF variable
+	int led_pwm_int = 0; //PWM value variable
 
 	short error = 0; //Error flag
 	
@@ -155,6 +159,10 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		led_en_int = 0;
 		no_en_value = 1;
 		}
+	
+		
+		
+		
 	if ((strncmp(led_pwm, "MAX", 3) == 0) && (strncmp(led_num, "ALL", 3) == 0 ))  //If brightness arg is MAX and lednum arg is ALL
 	{
 		LED1_VALUE = LED2_VALUE = LED3_VALUE = LED4_VALUE = MAX_PWM; //Set all LED's brightness to max
@@ -192,6 +200,11 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		{
 		case 0:
 		char2int(led_num, &led_num_int);
+		if ((led_num_int <= 0) || (led_num_int > 4)) //If lednum less than 0 or mire than 4 
+			{ 
+				error = 1; //error
+				printf("Wrong LED number value \n\r");
+			}
 		break;
 		case 1:
 		break;
@@ -202,48 +215,98 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 	switch(no_en_value) 
 		{
 		case 0:
+		old_led_en_value = led_en_int;
 		char2int(led_en, &led_en_int);
+				if ((led_en_int != 0) && (led_en_int != 1)) //If EN values is not 0 or 1
+			{ 
+				error = 1; //error
+				led_en_int = old_led_en_value;
+				printf("Wrong EN value \n\r");
+			}
 		break;
 		case 1:
 		break;
 			default:
 		break;
 		}
+	 
+		//increment\decrement if LEDNUM is not ALL
+	if (strncmp(led_pwm, "+1", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))  //
+	{
+		led_pwm_int = LED_ValuebyNum(led_num_int) + 10;
+		no_pwm_value = 2;
+	
+		}
+	if (strncmp(led_pwm, "+2", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{		
+		led_pwm_int = LED_ValuebyNum(led_num_int) + 100;
+		no_pwm_value = 2;
+		
+		}
+	if (strncmp(led_pwm, "+3", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{
+		led_pwm_int = LED_ValuebyNum(led_num_int) + 1000;
+		no_pwm_value = 2;
+		
+		}
+	if (strncmp(led_pwm, "+4", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{
+		led_pwm_int = LED_ValuebyNum(led_num_int) + 10000;
+		no_pwm_value = 2;
+		
+		}
+	
+	if (strncmp(led_pwm, "-1", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{
+		led_pwm_int = LED_ValuebyNum(led_num_int) - 10;
+		no_pwm_value = 2;
 
+		}
+	if (strncmp(led_pwm, "-2", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{		
+		led_pwm_int = LED_ValuebyNum(led_num_int) - 100;
+		no_pwm_value = 2;
+		
+		}
+	if (strncmp(led_pwm, "-3", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{
+		led_pwm_int = LED_ValuebyNum(led_num_int) - 1000;
+		no_pwm_value = 2;
+		
+		}
+	if (strncmp(led_pwm, "-4", 2) == 0 && (strncmp(led_num, "ALL", 3) != 0 ))
+	{
+		led_pwm_int = LED_ValuebyNum(led_num_int) - 10000;
+		no_pwm_value = 2;
+		
+		}
+	
+		
+		
 	switch(no_pwm_value) 
 		{
 		case 0:
-		char2int(led_pwm, &led_pwm_int);
+		old_led_pwm_value = led_pwm_int;
+		char2int(led_pwm, &led_pwm_int); //If PWM value greater than 65535 and less or equals zero 
+		if ((led_pwm_int >= 65535) || (led_pwm_int != NULL)) //FIX
+			{ 
+				error = 1; //error
+				led_pwm_int = old_led_pwm_value;
+				printf("Wrong PWM value \n\r");
+			}
 		break;
 		case 1:
 		break;
+		case 2:
+		break;
 			default:
 		break;
-		}
-		
-	if (strncmp(led_pwm, "+", 1) == 0)  //
-	{
-		led_pwm_int = LED_ValuebyNum(led_num_int) + 10;
-		no_pwm_value = 0;
-		printf("got + \n\r"); //FIX
-		}
-	if (strncmp(led_pwm, "++", 2) == 0)  //
-	{		
-		led_pwm_int = LED_ValuebyNum(led_num_int) + 100;
-		no_pwm_value = 0;
-		printf("got ++ \n\r"); //FIX
-		}
-	if (strncmp(led_pwm, "+++", 3) == 0)  //
-	{
-		led_pwm_int = LED_ValuebyNum(led_num_int) + 1000;
-		no_pwm_value = 0;
-		printf("got +++ \n\r"); //FIX
 		}
 
 	switch (led_num_int) //Process argument values
 	{
 		case 1:
-				if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+				if ((no_pwm_value != 1) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED1_VALUE = led_pwm_int; //PWM value is argument variable
 					}
 		if (no_en_value == 0) { //If no text value and value is not null
@@ -251,7 +314,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 			}
 		break;
 		case 2:
-					if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+					if ((no_pwm_value != 1) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED2_VALUE = led_pwm_int; //PWM value is argument variable
 					}
 			if (no_en_value == 0) { //If no text value and value is not null
@@ -259,7 +322,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 			}
 		break;
 		case 3:
-					if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+					if ((no_pwm_value != 1) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED3_VALUE = led_pwm_int; //PWM value is argument variable
 					}
 		if (no_en_value == 0) { //If no text value and value is not null
@@ -267,7 +330,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 			}
 		break;
 		case 4:
-					if ((no_pwm_value == 0) && (led_pwm_int != NULL)) { //If no text value and value is not null
+					if ((no_pwm_value != 1) && (led_pwm_int != NULL)) { //If no text value and value is not null
 				LED4_VALUE = led_pwm_int; //PWM value is argument variable
 					}
 		if (no_en_value == 0) { //If no text value and value is not null
@@ -275,14 +338,99 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 			}
 		break;
 		case 228: //set same parameters for ALL LED's
-//			LED1_VALUE = led_pwm_int;
-//			LED1_EN = led_en_int;
-//			LED2_VALUE = led_pwm_int;
-//			LED2_EN = led_en_int;
-//			LED3_VALUE = led_pwm_int;
-//			LED3_EN = led_en_int;
-//			LED4_VALUE = led_pwm_int;
-//			LED4_EN = led_en_int;
+			
+			//increment\decrement if for ALL
+	if (strncmp(led_pwm, "+1", 2) == 0)  //
+	{
+		LED1_VALUE = LED_ValuebyNum(1) + 10;
+		LED2_VALUE = LED_ValuebyNum(2) + 10;
+		LED3_VALUE = LED_ValuebyNum(3) + 10;
+		LED4_VALUE = LED_ValuebyNum(4) + 10;
+		//no_pwm_value = 0;
+	
+		}
+	if (strncmp(led_pwm, "+2", 2) == 0)  //
+	{		
+		LED1_VALUE = LED_ValuebyNum(1) + 100;
+		LED2_VALUE = LED_ValuebyNum(2) + 100;
+		LED3_VALUE = LED_ValuebyNum(3) + 100;
+		LED4_VALUE = LED_ValuebyNum(4) + 100;
+		//no_pwm_value = 0;
+		
+		}
+	if (strncmp(led_pwm, "+3", 2) == 0)  //
+	{
+		LED1_VALUE = LED_ValuebyNum(1) + 1000;
+		LED2_VALUE = LED_ValuebyNum(2) + 1000;
+		LED3_VALUE = LED_ValuebyNum(3) + 1000;
+		LED4_VALUE = LED_ValuebyNum(4) + 1000;
+		//no_pwm_value = 0;
+		
+		}
+	if (strncmp(led_pwm, "+4", 2) == 0)  //
+	{
+		LED1_VALUE = LED_ValuebyNum(1) + 10000;
+		LED2_VALUE = LED_ValuebyNum(2) + 10000;
+		LED3_VALUE = LED_ValuebyNum(3) + 10000;
+		LED4_VALUE = LED_ValuebyNum(4) + 10000;
+		//no_pwm_value = 0;
+		
+		}
+	
+	if (strncmp(led_pwm, "-1", 2) == 0)  //
+	{
+		LED1_VALUE = LED_ValuebyNum(1) - 10;
+		LED2_VALUE = LED_ValuebyNum(2) - 10;
+		LED3_VALUE = LED_ValuebyNum(3) - 10;
+		LED4_VALUE = LED_ValuebyNum(4) - 10;
+		//no_pwm_value = 0;
+		
+		}
+	if (strncmp(led_pwm, "-2", 2) == 0)  //
+	{		
+		LED1_VALUE = LED_ValuebyNum(1) - 100;
+		LED2_VALUE = LED_ValuebyNum(2) - 100;
+		LED3_VALUE = LED_ValuebyNum(3) - 100;
+		LED4_VALUE = LED_ValuebyNum(4) - 100;
+		//no_pwm_value = 0;
+		
+		}
+	if (strncmp(led_pwm, "-3", 2) == 0)  //
+	{
+		LED1_VALUE = LED_ValuebyNum(1) - 1000;
+		LED2_VALUE = LED_ValuebyNum(2) - 1000;
+		LED3_VALUE = LED_ValuebyNum(3) - 1000;
+		LED4_VALUE = LED_ValuebyNum(4) - 1000;
+		//no_pwm_value = 0;
+		
+		}
+	if (strncmp(led_pwm, "-4", 2) == 0)  //
+	{
+		printf("LED1 VALUE BEFORE = %i\n\r", LED1_VALUE); //FIX
+		LED1_VALUE = LED_ValuebyNum(1) - 10000;
+		LED2_VALUE = LED_ValuebyNum(2) - 10000;
+		LED3_VALUE = LED_ValuebyNum(3) - 10000;
+		LED4_VALUE = LED_ValuebyNum(4) - 10000;
+		//no_pwm_value = 0;
+		printf("LED1 VALUE AFTER = %i\n\r", LED1_VALUE); //FIX
+		
+		}
+	
+		if (led_pwm_int != NULL) 
+		{
+			LED1_VALUE = led_pwm_int;
+			LED2_VALUE = led_pwm_int;
+			LED3_VALUE = led_pwm_int;
+			LED4_VALUE = led_pwm_int;
+		}
+		if ((led_en_int != NULL && ((led_en_int == 0) ||  (led_en_int == 1))))
+		{
+			LED1_EN = led_en_int;
+			LED2_EN = led_en_int;
+			LED3_EN = led_en_int;
+			LED4_EN = led_en_int;
+		}
+			
 		break;
 		default:
 			printf("Syntax error near LED \n\r");

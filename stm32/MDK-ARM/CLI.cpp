@@ -40,8 +40,11 @@ void GetCommands(void);
 
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
 void LED_SW(void);
+int LED_ValuebyNum (int lednum);
+int LED_PWMbyNum(int lednum);
+int LED_StatebyNum(int lednum);
 void PSU_SWITCH(char *arg);
-
+void Status(void);
 void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
 
@@ -161,6 +164,9 @@ void GetCommands(void) {
 		if(strncmp(command, "PSU", 3) == 0) { //PSU on\off command
 		PSU_SWITCH(argument1);
 		}
+		if(strncmp(command, "STATUS", 6) == 0) {
+			Status();
+			}
 //		else {
 //			printf("Uknown command \n\r"); //Carrier return + newline,
 //		}
@@ -178,4 +184,30 @@ void char2int(char* pchar, int* pint) //char to int conversion function
 {
 	*pint = strtol(pchar, NULL, 10);
 
+}
+
+void Status(void) {
+//	LED_ValuebyNum(1);
+// LED_PWMbyNum(int lednum);
+// LED_StatebyNum(int lednum);
+	printf(" \n\r");
+	printf("LED1: %d ", LED_ValuebyNum(1));
+	printf("PWM: %d \t", LED_PWMbyNum(1));
+	printf("State: %d \t", LED_StatebyNum(1));
+	printf(" \n\r");
+	printf("LED2: %d ", LED_ValuebyNum(2));
+	printf("PWM: %d \t", LED_PWMbyNum(2));
+	printf("State: %d \t", LED_StatebyNum(2));
+	printf(" \n\r");
+	printf("LED3: %d ", LED_ValuebyNum(3));
+	printf("PWM: %d \t", LED_PWMbyNum(3));
+	printf("State: %d \t", LED_StatebyNum(3));
+	printf(" \n\r");
+	printf("LED4: %d ", LED_ValuebyNum(4));
+	printf("PWM: %d \t", LED_PWMbyNum(4));
+	printf("State: %d \t", LED_StatebyNum(4));
+	printf(" \n\r");
+	printf("PSU: %d \t", PS_ON);
+	printf(" \n\r");
+	
 }

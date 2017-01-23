@@ -96,6 +96,11 @@ extern int LED1_VALUE;
 extern int LED2_VALUE;
 extern int LED3_VALUE;
 extern int LED4_VALUE;	
+	//CAL values signs
+extern char LED1_CAL_SIGN;
+extern char LED2_CAL_SIGN;
+extern char LED3_CAL_SIGN;
+extern char LED4_CAL_SIGN;
 
 	//Maximum PWM value, for testing purposes
 extern int MAX_PWM;
