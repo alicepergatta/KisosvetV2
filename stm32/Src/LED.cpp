@@ -288,7 +288,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		case 0:
 		old_led_pwm_value = led_pwm_int;
 		char2int(led_pwm, &led_pwm_int); //If PWM value greater than 65535 and less or equals zero 
-		if ((led_pwm_int >= 65535) || (led_pwm_int != NULL)) //FIX
+		if ((led_pwm_int >= 65535) || (led_pwm_int == NULL)) //FIX
 			{ 
 				error = 1; //error
 				led_pwm_int = old_led_pwm_value;
