@@ -7,6 +7,12 @@
 #include <stdbool.h>
 
 
+	//Peripherals
+short buttonState; //where the button state stored
+short PS_ON = 0;
+short FAN_EN = 0;
+int FAN_PWM = 0;
+
 void PSU_SWITCH(char *arg);
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
 
@@ -75,6 +81,17 @@ HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 break;
 }
 
+switch(FAN_EN)
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+	break;
+	case 0:
+HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+	break;
+	default:
+break;
+}
 
 
   /* USER CODE BEGIN 3 */
@@ -98,3 +115,23 @@ void PSU_SWITCH(char *arg) { //PSU on\off command function
 	}
 	return;
 }
+
+void FAN_SWITCH(char *arg) { //PSU on\off command function
+	if(strncmp(arg, "ON", 2) == 0) {
+		FAN_EN = 1;
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+		printf("FAN has turned ON \n\r");
+	}
+	if(strncmp(arg, "OFF", 3) == 0) {
+		FAN_EN = 0;
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+		printf("FAN has turned OFF \n\r");
+	}
+	if(strncmp(arg, "OFF", 3) != 0 && strncmp(arg, "ON", 2) != 0) {
+		printf("Syntax error \n\r");
+	}
+	return;
+}
+
+
+

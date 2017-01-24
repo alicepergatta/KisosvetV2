@@ -159,6 +159,11 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		led_en_int = 0;
 		no_en_value = 1;
 		}
+	if (strncmp(led_en, "NC", 2) == 0 )  //No change
+	{
+		led_en_int = 0;
+		no_en_value = 2;
+		}
 	
 		
 		
@@ -407,13 +412,13 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 		}
 	if (strncmp(led_pwm, "-4", 2) == 0)  //
 	{
-		printf("LED1 VALUE BEFORE = %i\n\r", LED1_VALUE); //FIX
+		//printf("LED1 VALUE BEFORE = %i\n\r", LED1_VALUE); //FIX
 		LED1_VALUE = LED_ValuebyNum(1) - 10000;
 		LED2_VALUE = LED_ValuebyNum(2) - 10000;
 		LED3_VALUE = LED_ValuebyNum(3) - 10000;
 		LED4_VALUE = LED_ValuebyNum(4) - 10000;
 		no_pwm_value = 2;
-		printf("LED1 VALUE AFTER = %i\n\r", LED1_VALUE); //FIX
+		//printf("LED1 VALUE AFTER = %i\n\r", LED1_VALUE); //FIX
 		
 		}
 	
@@ -424,7 +429,7 @@ void LED_CLI(char *led_num, char *led_en, char *led_pwm) //Command-line interfac
 			LED3_VALUE = led_pwm_int;
 			LED4_VALUE = led_pwm_int;
 		}
-		if ((led_en_int != NULL && ((led_en_int == 0) ||  (led_en_int == 1))))
+		if ((led_en_int != NULL && (led_en_int != 2) && ((led_en_int == 0) || (led_en_int == 1)))) //CHECK!
 		{
 			LED1_EN = led_en_int;
 			LED2_EN = led_en_int;

@@ -56,10 +56,7 @@ UART_HandleTypeDef huart3;
 /* Private variables ---------------------------------------------------------*/
 
 
-	//Peripherals
-short buttonState; //where the button state stored
-short PS_ON = 0;
-int FAN_PWM = 0;
+
 
 
 	//configuration

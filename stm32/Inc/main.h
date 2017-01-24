@@ -114,6 +114,7 @@ extern int LED3_EN;
 extern int LED4_EN;
 	//FAN PWM value, to control fan speed
 extern int FAN_PWM;
+extern short FAN_EN;
 
 	//Power ON ATX PSU by KisoSvet
 extern short PS_ON;
