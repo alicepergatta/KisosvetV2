@@ -33,10 +33,9 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [x] PM on\off
 - [x] Main STM32 project code
 
-- [ ] Build firmware for ESP8266
+- [x] Build firmware for ESP8266
 - [ ] Add MQTT protocol support 
-- [ ] Make normal CLI over UART for STM32+ESP8266 interconnect
-- [ ] Replace UART for USART?
+- [x] Make normal CLI over UART for STM32+ESP8266 interconnect
 - [ ] Add DS18B20 functionality 
 - [ ] Add fan PWM level-shifter
 - [ ] Write fan control logic
@@ -46,7 +45,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [ ] Write code for ADC(voltage measuring)
 - [ ] Write wake-up and sleep functionality code
 - [ ] Make a few variants for device case
-- [ ] Implement CLI syntax
+- [x] Implement CLI syntax
 - [ ] Develop android application
 - [ ] add external antenna for ESP8266
 - [ ] Write logic for manual control by encoders and buttons
