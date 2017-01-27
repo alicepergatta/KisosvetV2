@@ -171,7 +171,7 @@ void GetCommands(void) {
 			Status();
 			}
 //		else {
-//			printf("Uknown command \n\r"); //Carrier return + newline,
+//			printf("Uknown command \n\r"); //Carrier return + newlin,
 //		}
 			
 }

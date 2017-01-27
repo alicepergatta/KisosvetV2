@@ -15,13 +15,21 @@ srv:on("receive", function(conn, pl)
    --uart.write(0, pl, "\r\n ")
    uart.write(0, "", pl )
    uart.write(0,"\n")  
---   uart.write(0, pl, "\n \r") 
+    --uart.write(0, pl, "\n \r") 
    --uart.write(0,"\n\r") 
    conn:send("OK")
+
    			uart.alt(0)
             collectgarbage()
    end)
 
+ uart.on("data", "\r",
+  function(data)
+   --conn:send(data)
+   if data=="quit\r" then
+      uart.on("data") -- unregister callback function
+      end
+    end)
 
 
 

@@ -116,7 +116,7 @@ extern int LED4_EN;
 extern int FAN_PWM;
 extern short FAN_EN;
 
-	//Power ON ATX PSU by KisoSvet
+	//Power ON ATX PSU by KisoSvet)
 extern short PS_ON;
 
 	//Buffers for UART

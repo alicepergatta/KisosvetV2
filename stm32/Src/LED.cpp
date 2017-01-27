@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-	//Direct PWM values which used for TIM4 registers
+	//Direct PWM values which used for TIM4 registers//
 int LED1_PWM = 0;
 int LED2_PWM = 0;
 int LED3_PWM = 0;
