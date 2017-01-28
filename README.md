@@ -37,16 +37,15 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [ ] Add MQTT protocol support 
 - [x] Make normal CLI over UART for STM32+ESP8266 interconnect
 - [ ] Add DS18B20 functionality 
-- [ ] Add fan PWM level-shifter
+- [ ] Add fan PWM level-shifter and configure TIM2 for it
 - [ ] Write fan control logic
 - [ ] Replace linear VREG's for step-down modules, to achieve bettter energy efficiency
 - [ ] Get better LDO VREG's
-- [ ] Write whole networking part
 - [ ] Write code for ADC(voltage measuring)
 - [ ] Write wake-up and sleep functionality code
 - [ ] Make a few variants for device case
 - [x] Implement CLI syntax
-- [ ] Develop android application
+- [x] Develop android application
 - [ ] add external antenna for ESP8266
 - [ ] Write logic for manual control by encoders and buttons
 
