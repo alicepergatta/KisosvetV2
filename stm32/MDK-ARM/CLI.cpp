@@ -45,6 +45,8 @@ int LED_PWMbyNum(int lednum);
 int LED_StatebyNum(int lednum);
 void PSU_SWITCH(char *arg);
 void FAN_SWITCH(char *arg);
+void ESP_UART_alt(void);
+void CLI_toogleEcho(void);
 void Status(void);
 void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
@@ -170,6 +172,13 @@ void GetCommands(void) {
 		if(strncmp(command, "STATUS", 6) == 0) {
 			Status();
 			}
+		if(strncmp(command, "uart_alt", 8) == 0) {
+			ESP_UART_alt();
+			}
+		if(strncmp(command, "toogleEcho", 10) == 0) {
+			CLI_toogleEcho();
+			}
+		
 //		else {
 //			printf("Uknown command \n\r"); //Carrier return + newlin,
 //		}
@@ -216,3 +225,26 @@ void Status(void) {
 	printf(" \n\r");
 	
 }
+
+void ESP_UART_alt(void) { //switch UART pins on ESP8266, for debug
+	
+	//printf(" \n\r");
+	printf("uart_alt ");
+}
+
+void CLI_toogleEcho(void) { //switch CLI ECHO
+	switch (L_ECHO) 
+	{
+		case 1:
+	L_ECHO = 0; 
+	printf("CLI ECHO is OFF \n\r");
+	break;
+		case 0:
+	L_ECHO = 1;
+	printf("CLI ECHO is ON \n\r");
+	break;
+		default:
+	break;
+		}
+}
+

@@ -1,6 +1,6 @@
 
 port=5000
-last_data = ""
+conn_ip = 0
 -- Works!
    print ("Meow! \r"  )
    print ("\n\r"  )
@@ -11,11 +11,9 @@ srv:listen(port)
 uart.alt(1)
 
     srv:on("receive",function(c,l)
-         --uart.write(0, "\r")
-         --uart.write(0,"\n") 
-         uart.write(0, l)
-		 uart.write(0,"\r") 
-         
+        uart.write(0, "\r")
+         uart.write(0, "", l)
+		 uart.write(0,"\n") 
         c:send("Received")
         collectgarbage()
     end)
@@ -24,16 +22,14 @@ uart.alt(1)
         -- not yet implemented
     --end)
 
-    uart.on("data", "\r",
+    uart.on("data", 0,
         function(data)
             srv:send(data)
-            last_data = data
             collectgarbage()
     end, 0)
 
-if last_data == "uart_alt \n\r" then
-uart.alt(1)
-end
+
+
 
 
 

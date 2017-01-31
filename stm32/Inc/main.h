@@ -95,7 +95,12 @@ extern int LED4_CAL_VALUE;
 extern int LED1_VALUE;
 extern int LED2_VALUE;
 extern int LED3_VALUE;
-extern int LED4_VALUE;	
+extern int LED4_VALUE;
+
+extern int LED1_ALL_VALUE;
+extern int LED2_ALL_VALUE;
+extern int LED3_ALL_VALUE;
+extern int LED4_ALL_VALUE;	
 	//CAL values signs
 extern char LED1_CAL_SIGN;
 extern char LED2_CAL_SIGN;

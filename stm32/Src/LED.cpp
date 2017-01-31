@@ -32,6 +32,11 @@ int LED1_VALUE = 57020;
 int LED2_VALUE = 57020;
 int LED3_VALUE = 57020;
 int LED4_VALUE = 57020;
+	//For ALL mode
+int LED1_ALL_VALUE = 0;
+int LED2_ALL_VALUE = 0;
+int LED3_ALL_VALUE = 0;
+int LED4_ALL_VALUE = 0;
 
 
 int i = 0;

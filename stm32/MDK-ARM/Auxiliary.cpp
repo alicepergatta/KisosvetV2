@@ -11,7 +11,7 @@
 short buttonState; //where the button state stored
 short PS_ON = 0;
 short FAN_EN = 0;
-int FAN_PWM = 0;
+int FAN_PWM = 125; //from 0 to 255
 
 void PSU_SWITCH(char *arg);
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
