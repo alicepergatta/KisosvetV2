@@ -44,7 +44,7 @@ int LED_ValuebyNum (int lednum);
 int LED_PWMbyNum(int lednum);
 int LED_StatebyNum(int lednum);
 void PSU_SWITCH(char *arg);
-void FAN_SWITCH(char *arg);
+void FAN_SWITCH(char *arg1, char *arg2);
 void ESP_UART_alt(void);
 void CLI_toogleEcho(void);
 void Status(void);
@@ -164,7 +164,7 @@ void GetCommands(void) {
 			LED_CLI(argument1, argument2, argument3);
 			}
 		if(strncmp(command, "FAN", 3) == 0) { //FAN on\off command
-		FAN_SWITCH(argument1);
+		FAN_SWITCH(argument1, argument2);
 			}
 		if(strncmp(command, "PSU", 3) == 0) { //PSU on\off command
 		PSU_SWITCH(argument1);
@@ -221,7 +221,8 @@ void Status(void) {
 	printf(" \n\r");
 	printf("PSU: %d \t", PS_ON);
 	printf(" \n\r");
-	printf("FAN: %d \t", FAN_EN);
+	printf("FAN: %d \t", FAN_EN); 
+	printf("  PWM: %d \t", FAN_PWM); 
 	printf(" \n\r");
 	
 }

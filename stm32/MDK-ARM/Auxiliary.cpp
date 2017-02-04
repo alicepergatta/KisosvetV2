@@ -11,11 +11,12 @@
 short buttonState; //where the button state stored
 short PS_ON = 0;
 short FAN_EN = 0;
-int FAN_PWM = 125; //from 0 to 255
+int FAN_PWM = 225; //from 0 to 255
 
 void PSU_SWITCH(char *arg);
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
-
+void char2short(char* pchar, short* pshort);
+void char2int(char* pchar, int* pint);
 
 short btn_state = 0;
  char arg1[20] = "0";
@@ -116,20 +117,34 @@ void PSU_SWITCH(char *arg) { //PSU on\off command function
 	return;
 }
 
-void FAN_SWITCH(char *arg) { //PSU on\off command function
-	if(strncmp(arg, "ON", 2) == 0) {
+void FAN_SWITCH(char *arg1, char *arg2) { //PSU on\off command function
+	int fan_value;
+	if(strncmp(arg1, "ON", 2) == 0) 
+		{
 		FAN_EN = 1;
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
 		printf("FAN has turned ON \n\r");
-	}
-	if(strncmp(arg, "OFF", 3) == 0) {
+		}
+	if(strncmp(arg1, "OFF", 3) == 0) 
+		{
 		FAN_EN = 0;
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
 		printf("FAN has turned OFF \n\r");
-	}
-	if(strncmp(arg, "OFF", 3) != 0 && strncmp(arg, "ON", 2) != 0) {
+		}
+	if(strncmp(arg1, "OFF", 3) != 0 && strncmp(arg1, "ON", 2) != 0) 
+		{
 		printf("Syntax error \n\r");
-	}
+		}
+	if (arg2!= NULL) 
+		{
+			char2int(arg2, &fan_value);
+		}
+		if (fan_value >=1 && fan_value <= 255)
+		{
+			FAN_PWM = fan_value;
+			printf("OK \n\r");
+		}
+	TIM2->CCR1 = FAN_PWM;
 	return;
 }
 
