@@ -1,1 +1,0 @@
-Still didn't received my boards, "thanks" to ukrainian post
