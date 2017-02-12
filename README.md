@@ -7,24 +7,34 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 
 ## Main functionality:
 
+- Modular and customizable architecture, you can make owm custom Kisosvet
 - 16-bit PWM brightness regulation, without any flickering
 - Color temperature regulation, and white color calibration
 - Different LED types for full spectre(WW + NW or WW + CW for example)
-- Flickering-free power modules and control circuitry schemati
-- Step-down based power modules, wich can work at voltage up to 35V - in car, at home, everywhere with 3S(or more) lithium battery pack.
+- Flickering-free power modules and control circuitry schematic
+- DC-DC converter based power modules, wich can work at different voltage - in car, at home, everywhere with lithium battery pack.
 - STM32 microcontroller as a "brain"
 - ESP8266 for networking functionality
+- User-friendly control from android-application 
 - MQTT support for smart home system
 - DS18B20 as a temperature sensor for fan control logic
 - Temperature & fan control with overheat protection
 - Energy efficiency:each PM can be switched on\off, fan on\off + fan PWM, sleep\standby modes for main chips.
 - Network control by web-interface or android application
-- Wake-up from internal li-ion battery, and power on external PSU - perfect for use wih ATX PSU by pulling down PS_ON pin.
+- Wake-up from internal li-ion battery or external duty supply, and power on external PSU - perfect for use wih ATX PSU by pulling down PS_ON pin.
 - Measuring power supply\main battery voltage - you exactly know when battery low.
+
+## My KisosvetV2 configuration(which i build for yourself):
+- WW + NW 10W LED's
+- 4 LED's
+- 10W step-down based PM's(for 10W LED's, obviously)
+- Supply voltage from 11V to 28V
+- 80 mm 12V FAN from CPU cooler
 
 
 ## TODO:
 
+- [ ] Add 7-seg display for system info and other features
 - [x] Power Modules schematic 
 - [x] Reverse voltage protection
 - [x] Power rails schematic
