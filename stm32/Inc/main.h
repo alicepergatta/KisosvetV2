@@ -121,6 +121,9 @@ extern int LED4_EN;
 extern int FAN_PWM;
 extern short FAN_EN;
 
+	//temperature on DS18B20
+extern signed int HS_temp;	
+	
 	//Power ON ATX PSU by KisoSvet)
 extern short PS_ON;
 

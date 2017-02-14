@@ -10,9 +10,11 @@
 
 #define PORT  GPIOA   //указать порт, к которому подключены датчики
 #define TIMER TIM3    //задаем таймер, используемый для формирования задержек
+uint8_t PinNumber = 1;
+signed int HS_temp;
  
  
- //код скопипизжен с какого-то сайта, надо глянуть с какого
+ //код скопипизжен с http://mycontroller.ru/old_site/stm32-ds18b20-izmerenie-temperaturyi/
 //*********************************************************************************************
 //function  импульс сброса                                                                   //
 //argument  маска порта                                                                      //
@@ -181,3 +183,15 @@ signed int ds_read_temperature(uint8_t PinNumb)
   return result;
 }
 
+
+
+void GetTemperature()
+ {
+	ds_start_convert_single(PinNumber);     //запустить измерение температуры                              
+	HAL_Delay(1000);
+	HS_temp = ds_read_temperature(PinNumber);   //прочитать результат измерения
+ }
+ 
+ 
+ 
+ 

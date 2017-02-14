@@ -82,52 +82,27 @@
         <Book>
           <Number>0</Number>
           <Title>Quick Start Guide (MCBSTM32E)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\STM32E_QSG.pdf</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\STM32E_QSG.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Base Board Schematics (MCBSTM32E)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-base-board-schematics.pdf</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-base-board-schematics.pdf</Path>
         </Book>
         <Book>
           <Number>2</Number>
           <Title>Display Board Schematics (MCBSTM32E)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-display-board-schematics.pdf</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-display-board-schematics.pdf</Path>
         </Book>
         <Book>
           <Number>3</Number>
           <Title>User Manual (MCBSTM32E)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e.chm</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e.chm</Path>
         </Book>
         <Book>
           <Number>4</Number>
-          <Title>User Manual (NUCLEO-F103RB)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32NUCLEO_BSP\1.6.0\Documents\DM00105823.pdf</Path>
-        </Book>
-        <Book>
-          <Number>5</Number>
-          <Title>Overview (NUCLEO-F103RB)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32NUCLEO_BSP\1.6.0\Documents\DM00105918.pdf</Path>
-        </Book>
-        <Book>
-          <Number>6</Number>
-          <Title>Getting started (NUCLEO-F103RB)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32NUCLEO_BSP\1.6.0\Documents\DM00105928.pdf</Path>
-        </Book>
-        <Book>
-          <Number>7</Number>
-          <Title>Schematics (NUCLEO-F103RB)</Title>
-          <Path>C:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32NUCLEO_BSP\1.6.0\Documents\MB1136.pdf</Path>
-        </Book>
-        <Book>
-          <Number>8</Number>
           <Title>MCBSTM32E Evaluation Board Web Page (MCBSTM32E)</Title>
           <Path>http://www.keil.com/mcbstm32e/</Path>
-        </Book>
-        <Book>
-          <Number>9</Number>
-          <Title>STM32 Nucleo board (NUCLEO-F103RB)</Title>
-          <Path>http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1847/PF259875</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -152,6 +127,7 @@
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
+        <bEvRecOn>1</bEvRecOn>
         <nTsel>5</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
@@ -203,7 +179,7 @@
           <Type>0</Type>
           <LineNumber>400</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226616</Address>
+          <Address>134226852</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -219,7 +195,7 @@
           <Type>0</Type>
           <LineNumber>360</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226222</Address>
+          <Address>134226458</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -235,7 +211,7 @@
           <Type>0</Type>
           <LineNumber>217</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230090</Address>
+          <Address>134230450</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -251,7 +227,7 @@
           <Type>0</Type>
           <LineNumber>216</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230082</Address>
+          <Address>134230442</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -267,7 +243,7 @@
           <Type>0</Type>
           <LineNumber>214</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230074</Address>
+          <Address>134230434</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -283,7 +259,7 @@
           <Type>0</Type>
           <LineNumber>224</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230126</Address>
+          <Address>134230486</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -299,7 +275,7 @@
           <Type>0</Type>
           <LineNumber>357</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226192</Address>
+          <Address>134226428</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -315,7 +291,7 @@
           <Type>0</Type>
           <LineNumber>396</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226602</Address>
+          <Address>134226838</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -331,7 +307,7 @@
           <Type>0</Type>
           <LineNumber>365</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226238</Address>
+          <Address>134226474</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -347,7 +323,7 @@
           <Type>0</Type>
           <LineNumber>366</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226246</Address>
+          <Address>134226482</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -363,7 +339,7 @@
           <Type>0</Type>
           <LineNumber>404</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226648</Address>
+          <Address>134226884</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -379,7 +355,7 @@
           <Type>0</Type>
           <LineNumber>405</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226658</Address>
+          <Address>134226894</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -395,7 +371,7 @@
           <Type>0</Type>
           <LineNumber>433</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226816</Address>
+          <Address>134227052</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -408,6 +384,22 @@
         </Bp>
         <Bp>
           <Number>13</Number>
+          <Type>0</Type>
+          <LineNumber>131</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134231762</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\KisoSvet2b\../Src/main.c\131</Expression>
+        </Bp>
+        <Bp>
+          <Number>14</Number>
           <Type>0</Type>
           <LineNumber>361</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -423,7 +415,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>14</Number>
+          <Number>15</Number>
           <Type>0</Type>
           <LineNumber>362</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -439,7 +431,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>15</Number>
+          <Number>16</Number>
           <Type>0</Type>
           <LineNumber>399</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -455,7 +447,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>16</Number>
+          <Number>17</Number>
           <Type>0</Type>
           <LineNumber>401</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -471,7 +463,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>17</Number>
+          <Number>18</Number>
           <Type>0</Type>
           <LineNumber>428</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -680,14 +672,12 @@
       <Lin2Executable></Lin2Executable>
       <Lin2ConfigFile></Lin2ConfigFile>
       <bLin2Auto>0</bLin2Auto>
+      <bAutoGenD>0</bAutoGenD>
+      <bAuto2GenD>0</bAuto2GenD>
       <SystemViewers>
         <Entry>
-          <Name>System Viewer\TIM2</Name>
+          <Name>System Viewer\TIM3</Name>
           <WinId>35905</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\TIM4</Name>
-          <WinId>35904</WinId>
         </Entry>
       </SystemViewers>
       <DebugDescription>
@@ -721,7 +711,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>../Src/stm32f1xx_hal_msp.c</PathWithFileName>
@@ -817,7 +807,7 @@
 
   <Group>
     <GroupName>Drivers/CMSIS</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -825,7 +815,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>10</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>../Drivers/CMSIS/Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c</PathWithFileName>
@@ -837,7 +827,7 @@
 
   <Group>
     <GroupName>Drivers/STM32F1xx_HAL_Driver</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

@@ -47,6 +47,7 @@ ADC_HandleTypeDef hadc1;
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
@@ -74,11 +75,14 @@ static void MX_TIM4_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_RTC_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM3_Init(void);
 static void MX_USART3_UART_Init(void);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 int LED_CVAL(int, int);
 void LED_SW(void);
 void CReturnCmd(void);
+void GetTemperature(void);
+
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -110,6 +114,8 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_TIM2_Init();
+	MX_TIM3_Init();
+	
   MX_USART3_UART_Init();
 	__HAL_UART_ENABLE_IT(&huart3, UART_IT_RXNE);
 	
@@ -121,11 +127,12 @@ HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 
 	//TIM2 start (FAN PWM)
 HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-
-
+	//TIM3 start
+HAL_TIM_Base_Start(&htim3);
 
 	//Sending greeting in terminal once after reset
 printf("Meow! Kisosvet V2 has started \n\r");
+GetTemperature(); //test, try to get temperature
 
   /* USER CODE BEGIN 2 */
 
@@ -290,6 +297,39 @@ static void MX_TIM2_Init(void)
   HAL_TIM_MspPostInit(&htim2);
 
 }
+/* TIM4 init function */
+static void MX_TIM3_Init(void)
+{
+	
+	
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_MasterConfigTypeDef sMasterConfig;
+
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 7;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 1000;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+}
+
 
 /* TIM4 init function */
 static void MX_TIM4_Init(void)
@@ -380,8 +420,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pins : TEMP_Pin BTN_1_Pin PA8 */
-  GPIO_InitStruct.Pin = TEMP_Pin|BTN_1_Pin|GPIO_PIN_8;
+    /*Configure GPIO pin : TEMP_Pin */
+  GPIO_InitStruct.Pin = TEMP_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(TEMP_GPIO_Port, &GPIO_InitStruct);
+	
+	  /*Configure GPIO pins : BTN_1_Pin PA8 */
+  GPIO_InitStruct.Pin = BTN_1_Pin|GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);

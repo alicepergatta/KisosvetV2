@@ -1,6 +1,6 @@
 kisosvet2b\auxiliary.o: Auxiliary.cpp
 kisosvet2b\auxiliary.o: ../Inc/main.h
-kisosvet2b\auxiliary.o: C:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\auxiliary.o: ../Inc/stm32f1xx_hal_conf.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -8,14 +8,14 @@ kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Include/core_cm3.h
-kisosvet2b\auxiliary.o: C:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Include/core_cmInstr.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Include/core_cmFunc.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-kisosvet2b\auxiliary.o: C:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
@@ -32,6 +32,6 @@ kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-kisosvet2b\auxiliary.o: C:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
-kisosvet2b\auxiliary.o: C:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\string.h
+kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\string.h
 kisosvet2b\auxiliary.o: CLI.h
