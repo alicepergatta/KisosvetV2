@@ -37,6 +37,9 @@
 
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
@@ -123,6 +126,7 @@ extern short FAN_EN;
 
 	//temperature on DS18B20
 extern signed int HS_temp;	
+//extern uint8_t PinNumber;
 	
 	//Power ON ATX PSU by KisoSvet)
 extern short PS_ON;

@@ -179,7 +179,7 @@
           <Type>0</Type>
           <LineNumber>400</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226852</Address>
+          <Address>134226860</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -195,7 +195,7 @@
           <Type>0</Type>
           <LineNumber>360</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226458</Address>
+          <Address>134226466</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -211,7 +211,7 @@
           <Type>0</Type>
           <LineNumber>217</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230450</Address>
+          <Address>134230502</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -227,7 +227,7 @@
           <Type>0</Type>
           <LineNumber>216</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230442</Address>
+          <Address>134230494</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -243,7 +243,7 @@
           <Type>0</Type>
           <LineNumber>214</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230434</Address>
+          <Address>134230486</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -259,7 +259,7 @@
           <Type>0</Type>
           <LineNumber>224</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230486</Address>
+          <Address>134230538</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -275,7 +275,7 @@
           <Type>0</Type>
           <LineNumber>357</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226428</Address>
+          <Address>134226436</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -291,7 +291,7 @@
           <Type>0</Type>
           <LineNumber>396</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226838</Address>
+          <Address>134226846</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -307,7 +307,7 @@
           <Type>0</Type>
           <LineNumber>365</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226474</Address>
+          <Address>134226482</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -323,7 +323,7 @@
           <Type>0</Type>
           <LineNumber>366</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226482</Address>
+          <Address>134226490</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -339,7 +339,7 @@
           <Type>0</Type>
           <LineNumber>404</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226884</Address>
+          <Address>134226892</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -355,7 +355,7 @@
           <Type>0</Type>
           <LineNumber>405</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226894</Address>
+          <Address>134226902</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -371,7 +371,7 @@
           <Type>0</Type>
           <LineNumber>433</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134227052</Address>
+          <Address>134227060</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -381,102 +381,6 @@
           <Filename>..\Src\LED.cpp</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\KisoSvet2b\../Src/LED.cpp\433</Expression>
-        </Bp>
-        <Bp>
-          <Number>13</Number>
-          <Type>0</Type>
-          <LineNumber>131</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134231762</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Src/main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\KisoSvet2b\../Src/main.c\131</Expression>
-        </Bp>
-        <Bp>
-          <Number>14</Number>
-          <Type>0</Type>
-          <LineNumber>361</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Src\LED.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>15</Number>
-          <Type>0</Type>
-          <LineNumber>362</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Src\LED.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>16</Number>
-          <Type>0</Type>
-          <LineNumber>399</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Src\LED.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>17</Number>
-          <Type>0</Type>
-          <LineNumber>401</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Src\LED.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>18</Number>
-          <Type>0</Type>
-          <LineNumber>428</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Src\LED.cpp</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -513,37 +417,22 @@
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\CLI.cpp\ret_pos,0x0A</ItemText>
+          <ItemText>\\KisoSvet2b\CLI.cpp\receiveBuffer_length,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\CLI.cpp\receiveBuffer_length,0x0A</ItemText>
+          <ItemText>\\KisoSvet2b\../Src/LED.cpp\LED_CLI\led_num_int,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\CLI.RxCnt,0x0A</ItemText>
+          <ItemText>\\KisoSvet2b\../Src/DS18B20.c\HS_temp,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>9</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\../Src/stm32f1xx_it.c\receiveBuffer_cnt,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>10</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\../Src/LED.cpp\LED_CLI\led_num</ItemText>
-        </Ww>
-        <Ww>
-          <count>11</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\../Src/LED.cpp\LED_CLI\led_en</ItemText>
-        </Ww>
-        <Ww>
-          <count>12</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>\\KisoSvet2b\../Src/LED.cpp\LED_CLI\led_num_int,0x0A</ItemText>
+          <ItemText>\\KisoSvet2b\../Src/DS18B20.c\ds_reset_pulse\result</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
@@ -676,7 +565,7 @@
       <bAuto2GenD>0</bAuto2GenD>
       <SystemViewers>
         <Entry>
-          <Name>System Viewer\TIM3</Name>
+          <Name>System Viewer\GPIOA</Name>
           <WinId>35905</WinId>
         </Entry>
       </SystemViewers>

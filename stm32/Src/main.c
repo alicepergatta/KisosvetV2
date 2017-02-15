@@ -132,7 +132,7 @@ HAL_TIM_Base_Start(&htim3);
 
 	//Sending greeting in terminal once after reset
 printf("Meow! Kisosvet V2 has started \n\r");
-GetTemperature(); //test, try to get temperature
+//GetTemperature(); //test, try to get temperature
 
   /* USER CODE BEGIN 2 */
 
@@ -421,10 +421,19 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
     /*Configure GPIO pin : TEMP_Pin */
-  GPIO_InitStruct.Pin = TEMP_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  //GPIO_InitStruct.Pin = TEMP_Pin;
+  //GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  //GPIO_InitStruct.Pull = GPIO_PULLDOWN; //try different 
   HAL_GPIO_Init(TEMP_GPIO_Port, &GPIO_InitStruct);
+		RCC->APB2ENR |=  RCC_APB2ENR_IOPAEN;  //Разрешить тактирование порта                          /
+	GPIOA->CRL   &= ~GPIO_CRL_MODE1;      //Очистить биты MODE
+	GPIOA->CRL   &= ~GPIO_CRL_CNF1;       //Очистить биты CNF
+	GPIOA->CRL   |=  GPIO_CRL_MODE1_1 ;   //Выход,частота 2MHz
+	GPIOA->CRL   |=  GPIO_CRL_CNF1_0;     //Открытый сток общего назначения
+	GPIOA->ODR   |=  1<<1 ;               //отпустить шину
+//	
+	
+	
 	
 	  /*Configure GPIO pins : BTN_1_Pin PA8 */
   GPIO_InitStruct.Pin = BTN_1_Pin|GPIO_PIN_8;

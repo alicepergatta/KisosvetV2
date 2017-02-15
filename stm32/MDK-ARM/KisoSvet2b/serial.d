@@ -3,6 +3,9 @@ kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\serial.o: ../Inc/stm32f1xx_hal_conf.h
 kisosvet2b\serial.o: ../Inc/main.h
 kisosvet2b\serial.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+kisosvet2b\serial.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+kisosvet2b\serial.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+kisosvet2b\serial.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\string.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 kisosvet2b\serial.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
@@ -15,7 +18,6 @@ kisosvet2b\serial.o: ../Drivers/CMSIS/Include/core_cmFunc.h
 kisosvet2b\serial.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-kisosvet2b\serial.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 kisosvet2b\serial.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h

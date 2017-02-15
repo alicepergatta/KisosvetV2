@@ -11,8 +11,8 @@
 #define PORT  GPIOA   //указать порт, к которому подключены датчики
 #define TIMER TIM3    //задаем таймер, используемый для формирования задержек
 uint8_t PinNumber = 1;
-signed int HS_temp;
- 
+signed int HS_temp = 0;
+void GetTemperature(void);
  
  //код скопипизжен с http://mycontroller.ru/old_site/stm32-ds18b20-izmerenie-temperaturyi/
 //*********************************************************************************************
@@ -24,7 +24,8 @@ uint8_t ds_reset_pulse(uint16_t PinMask)
 {
    uint16_t result;   
  
-   if((PORT->IDR & PinMask)==0)  return 2;         //проверить линию на отсутствие замыкания
+   if((PORT->IDR & PinMask)==0)  
+		return 2;         //проверить линию на отсутствие замыкания
    PORT->ODR &= ~PinMask;                          //потянуть шину к земле
    TIMER->CNT=0;
    while(TIMER->CNT<480){};                        //ждать 480 микросекунд
@@ -32,6 +33,7 @@ uint8_t ds_reset_pulse(uint16_t PinMask)
    while(TIMER->CNT<550){};                        //ждать 70 микросекунд
    result     =  PORT->IDR & PinMask;              //прочитать шину 
    while(TIMER->CNT<960){};                        //дождаться окончания инициализации
+	 //printf("%d \n\r", result);
    if(result) return 1;                            //датчик не обнаружен
    return 0;                                       //датчик обнаружен      
 }
@@ -103,6 +105,7 @@ uint8_t ds_start_convert_single(uint8_t PinNumb)
 {
   uint8_t result;
   result = ds_reset_pulse(1<<PinNumb);       //послать импульс сброса
+			 printf("%i \n\r", result); //debug	
   if(result) return result;                  //если ошибка - возвращаем ее код
   ds_write_byte(0xCC,1<<PinNumb);            //разрешить доступ к датчику не используя адрес  
   ds_write_byte(0x44,1<<PinNumb);            //запустить преобразование
@@ -187,11 +190,10 @@ signed int ds_read_temperature(uint8_t PinNumb)
 
 void GetTemperature()
  {
-	ds_start_convert_single(PinNumber);     //запустить измерение температуры                              
-	HAL_Delay(1000);
-	HS_temp = ds_read_temperature(PinNumber);   //прочитать результат измерения
+	HS_temp = 0;
+	ds_start_convert_single(PinNumber);     //запустить измерение температуры   
+	 
+	//HAL_Delay(1000);
+	//HS_temp = ds_read_temperature(PinNumber);   //прочитать результат измерения
  }
- 
- 
- 
- 
+ 		

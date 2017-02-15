@@ -50,8 +50,8 @@ void CLI_toogleEcho(void);
 void Status(void);
 void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
-
-
+//void GetTemp(void);
+void GetTemperature(void);
 
 
 void CReturnCmd(void) { 
@@ -178,6 +178,9 @@ void GetCommands(void) {
 		if(strncmp(command, "toogleEcho", 10) == 0) {
 			CLI_toogleEcho();
 			}
+		if(strncmp(command, "gettemp", 7) == 0) {
+			GetTemperature();
+			}
 		
 //		else {
 //			printf("Uknown command \n\r"); //Carrier return + newlin,
@@ -248,4 +251,3 @@ void CLI_toogleEcho(void) { //switch CLI ECHO
 	break;
 		}
 }
-
