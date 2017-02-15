@@ -192,8 +192,11 @@ void GetTemperature()
  {
 	HS_temp = 0;
 	ds_start_convert_single(PinNumber);     //запустить измерение температуры   
-	 
-	//HAL_Delay(1000);
-	//HS_temp = ds_read_temperature(PinNumber);   //прочитать результат измерения
+	 //TIMER->CNT=0;
+    //while(TIMER->CNT<15){};                         //задержка 15 микросекунд
+    //while(TIMER->CNT<60){};                         //оставшееся время 
+   
+	HAL_Delay(1000);
+	HS_temp = ds_read_temperature(PinNumber);   //прочитать результат измерения
  }
  		
