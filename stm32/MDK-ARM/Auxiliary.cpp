@@ -17,22 +17,28 @@ void PSU_SWITCH(char *arg);
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
 void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
+void GetTemperature(void);
+void FanLogic(void);
 
 short btn_state = 0;
  char arg1[20] = "0";
  char arg2[20] = "0";
  char arg3[20] = "0";
+ 
+signed int FanOnThresholdTemp = 455; //Temperature at which fan will start work 
+signed int FanOffThresholdTemp = 255; //Temperature at which fan will stop work, if system cooled enough
+signed int CriticalLedsTemperature = 855; //When reached, LED's will OFF to prevent damage
 
 void Auxiliary(void)
 {
 
 		
-	//Set PWM value for fan
-TIM2->CCR1 = FAN_PWM;
+	
+TIM2->CCR1 = FAN_PWM; //Set PWM value for fan
 		
 buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
-		
-	
+GetTemperature();	//get temperature value into global variable from DS18B20 sensor
+FanLogic();
 
 			//switch for button actions
 switch (buttonState)
@@ -149,4 +155,35 @@ void FAN_SWITCH(char *arg1, char *arg2) { //PSU on\off command function
 }
 
 
+
+
+
+
+
+
+
+void FanLogic()
+{
+	if (LedsTemperature >= FanOnThresholdTemp) 
+	{
+		FAN_EN = 1;
+	}
+	if (LedsTemperature <= FanOffThresholdTemp) 
+	{
+		FAN_EN = 0;
+		FAN_PWM = 255;
+	}
+	if ((LedsTemperature > OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) 
+	{
+		while (FAN_PWM != 0)
+		FAN_PWM = (FAN_PWM - 1);
+	}
+	if ((LedsTemperature < OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) 
+	{
+		while (FAN_PWM != 0)
+			//(fan_value >=1 && fan_value <= 255)
+		FAN_PWM = (FAN_PWM + 1);
+	}
+	return;
+}
 

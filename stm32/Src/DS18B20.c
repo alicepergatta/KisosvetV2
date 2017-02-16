@@ -3,16 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "stm32f1xx_hal_tim.h"
 
-//#include "stm32f1xx_hal_uart.h"
-//#include "CLI.h"
 
 #define PORT  GPIOA   //указать порт, к которому подключены датчики
 #define TIMER TIM3    //задаем таймер, используемый для формирования задержек
-uint8_t PinNumber = 1;
-signed int HS_temp = 0;
+uint8_t PinNumber = 1; //Pin of port which used for DS18B20 DQ pin
+uint32_t OldTickTime = 0; //tick time before	
+uint32_t NewTickTime = 0;	//and after
+uint32_t TickTimeDiff = 0;	//difference beetween
+signed int OldLedsTemperature = 0; //OLD(previously measured) temperature at LED's heatsink
+signed int LedsTemperature = 0; //Temperature at LED's heatsink
 void GetTemperature(void);
+short GetTemperatureState = 0;
  
  //код скопипизжен с http://mycontroller.ru/old_site/stm32-ds18b20-izmerenie-temperaturyi/
 //*********************************************************************************************
@@ -105,7 +109,6 @@ uint8_t ds_start_convert_single(uint8_t PinNumb)
 {
   uint8_t result;
   result = ds_reset_pulse(1<<PinNumb);       //послать импульс сброса
-			 printf("%i \n\r", result); //debug	
   if(result) return result;                  //если ошибка - возвращаем ее код
   ds_write_byte(0xCC,1<<PinNumb);            //разрешить доступ к датчику не используя адрес  
   ds_write_byte(0x44,1<<PinNumb);            //запустить преобразование
@@ -188,15 +191,77 @@ signed int ds_read_temperature(uint8_t PinNumb)
 
 
 
-void GetTemperature()
- {
-	HS_temp = 0;
-	ds_start_convert_single(PinNumber);     //запустить измерение температуры   
-	 //TIMER->CNT=0;
-    //while(TIMER->CNT<15){};                         //задержка 15 микросекунд
-    //while(TIMER->CNT<60){};                         //оставшееся время 
-   
-	HAL_Delay(1000);
-	HS_temp = ds_read_temperature(PinNumber);   //прочитать результат измерения
+//void GetTemperature() 
+// {
+//	 
+//		switch (GetTemperatureState)
+//		OldLedsTemperature = LedsTemperature; //move last measured value, into separate value
+//		LedsTemperature = 0; //clear variable for new measure
+//	ds_start_convert_single(PinNumber);     //запустить измерение температуры   
+//	OldTickTime = HAL_GetTick(); //get tick time to measure diffrence
+//		if (TickTimeDiff >= 1000) 
+//		{
+//	 LedsTemperature = ds_read_temperature(PinNumber);   //прочитать результат измерения
+//		}
+//	LedsTemperature = ds_read_temperature(PinNumber);   //прочитать результат измерения
+//		NewTickTime = HAL_GetTick(); //get tick time to measure diffrence
+//		TickTimeDiff = (NewTickTime - OldTickTime); //compute diffrence
+//	printf("%i \n\r", LedsTemperature); //debug	
+//	printf("%i \n\r", TickTimeDiff); //debug	 
+// }
+ 
+ void GetTemperature() 
+	{
+		switch (GetTemperatureState)
+		{
+			case 0: //Measure not started
+				ds_start_convert_single(PinNumber);     //запустить измерение температуры
+				OldTickTime = HAL_GetTick(); //get tick time to measure diffrence
+				GetTemperatureState = 1;
+				break;
+			case 1: //Measure started
+				NewTickTime = HAL_GetTick(); //get tick time to measure diffrence
+				TickTimeDiff = (NewTickTime - OldTickTime); //compute diffrence
+			if (TickTimeDiff >= 1000) 
+				{
+				OldLedsTemperature = LedsTemperature; //move last measured value, into separate value
+				LedsTemperature = ds_read_temperature(PinNumber);   //прочитать результат измерения
+				GetTemperatureState = 0; //change state for new measures
+				OldTickTime = 0; //re-zero values
+				NewTickTime = 0; //re-zero values
+				TickTimeDiff = 0; //re-zero values
+				}
+				break;
+			case 2:
+				break;
+			default:
+		break;
+		}
  }
- 		
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+

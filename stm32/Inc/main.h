@@ -125,7 +125,8 @@ extern int FAN_PWM;
 extern short FAN_EN;
 
 	//temperature on DS18B20
-extern signed int HS_temp;	
+extern signed int LedsTemperature;	
+extern signed int OldLedsTemperature;
 //extern uint8_t PinNumber;
 	
 	//Power ON ATX PSU by KisoSvet)

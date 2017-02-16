@@ -48,6 +48,7 @@ void FAN_SWITCH(char *arg1, char *arg2);
 void ESP_UART_alt(void);
 void CLI_toogleEcho(void);
 void Status(void);
+void CliGetTemperature(void);
 void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
 //void GetTemp(void);
@@ -179,7 +180,7 @@ void GetCommands(void) {
 			CLI_toogleEcho();
 			}
 		if(strncmp(command, "gettemp", 7) == 0) {
-			GetTemperature();
+			CliGetTemperature();
 			}
 		
 //		else {
@@ -225,9 +226,11 @@ void Status(void) {
 	printf("PSU: %d \t", PS_ON);
 	printf(" \n\r");
 	printf("FAN: %d \t", FAN_EN); 
-	printf("  PWM: %d \t", FAN_PWM); 
+	printf("  PWM: %i \t", FAN_PWM); 
 	printf(" \n\r");
-	
+	printf("Current LED's temperature: %d C \t", LedsTemperature);
+	printf("  Last: %i C \t", OldLedsTemperature); 
+	printf(" \n\r");
 }
 
 void ESP_UART_alt(void) { //switch UART pins on ESP8266, for debug
@@ -251,3 +254,13 @@ void CLI_toogleEcho(void) { //switch CLI ECHO
 	break;
 		}
 }
+void CliGetTemperature()
+{
+	GetTemperature();
+	printf("Current LED's temperature: %d C \t", LedsTemperature);
+	printf("  Last: %i C \t", OldLedsTemperature); 
+	printf(" \n\r");
+	}
+
+
+

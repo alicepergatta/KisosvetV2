@@ -82,22 +82,22 @@
         <Book>
           <Number>0</Number>
           <Title>Quick Start Guide (MCBSTM32E)</Title>
-          <Path>C:\Program Files\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\STM32E_QSG.pdf</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\STM32E_QSG.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Base Board Schematics (MCBSTM32E)</Title>
-          <Path>C:\Program Files\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-base-board-schematics.pdf</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-base-board-schematics.pdf</Path>
         </Book>
         <Book>
           <Number>2</Number>
           <Title>Display Board Schematics (MCBSTM32E)</Title>
-          <Path>C:\Program Files\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-display-board-schematics.pdf</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e-display-board-schematics.pdf</Path>
         </Book>
         <Book>
           <Number>3</Number>
           <Title>User Manual (MCBSTM32E)</Title>
-          <Path>C:\Program Files\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e.chm</Path>
+          <Path>D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Documents\mcbstm32e.chm</Path>
         </Book>
         <Book>
           <Number>4</Number>
@@ -127,6 +127,7 @@
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
+        <bEvRecOn>1</bEvRecOn>
         <nTsel>5</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
@@ -178,7 +179,7 @@
           <Type>0</Type>
           <LineNumber>400</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226880</Address>
+          <Address>134227088</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -194,7 +195,7 @@
           <Type>0</Type>
           <LineNumber>360</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226486</Address>
+          <Address>134226694</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -210,7 +211,7 @@
           <Type>0</Type>
           <LineNumber>217</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230522</Address>
+          <Address>134230814</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -226,7 +227,7 @@
           <Type>0</Type>
           <LineNumber>216</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230514</Address>
+          <Address>134230806</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -242,7 +243,7 @@
           <Type>0</Type>
           <LineNumber>214</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230506</Address>
+          <Address>134230798</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -258,7 +259,7 @@
           <Type>0</Type>
           <LineNumber>224</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134230558</Address>
+          <Address>134230850</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -274,7 +275,7 @@
           <Type>0</Type>
           <LineNumber>357</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226456</Address>
+          <Address>134226664</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -290,7 +291,7 @@
           <Type>0</Type>
           <LineNumber>396</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226866</Address>
+          <Address>134227074</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -306,7 +307,7 @@
           <Type>0</Type>
           <LineNumber>365</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226502</Address>
+          <Address>134226710</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -322,7 +323,7 @@
           <Type>0</Type>
           <LineNumber>366</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226510</Address>
+          <Address>134226718</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -338,7 +339,7 @@
           <Type>0</Type>
           <LineNumber>404</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226912</Address>
+          <Address>134227120</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -354,7 +355,7 @@
           <Type>0</Type>
           <LineNumber>405</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134226922</Address>
+          <Address>134227130</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -370,7 +371,7 @@
           <Type>0</Type>
           <LineNumber>433</LineNumber>
           <EnabledFlag>0</EnabledFlag>
-          <Address>134227080</Address>
+          <Address>134227288</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -380,6 +381,22 @@
           <Filename>..\Src\LED.cpp</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\KisoSvet2b\../Src/LED.cpp\433</Expression>
+        </Bp>
+        <Bp>
+          <Number>13</Number>
+          <Type>0</Type>
+          <LineNumber>149</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134232148</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\KisoSvet2b\../Src/main.c\149</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -531,7 +548,7 @@
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>1</aLwin>
+        <aLwin>0</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
@@ -560,6 +577,8 @@
       <Lin2Executable></Lin2Executable>
       <Lin2ConfigFile></Lin2ConfigFile>
       <bLin2Auto>0</bLin2Auto>
+      <bAutoGenD>0</bAutoGenD>
+      <bAuto2GenD>0</bAuto2GenD>
       <DebugDescription>
         <Enable>1</Enable>
         <EnableLog>0</EnableLog>
