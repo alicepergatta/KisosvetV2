@@ -34,7 +34,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 
 ## TODO:
 
-- [ ] Add 7-seg display for system info and other features
+- [ ] Add 7-seg display for two-factor auth, system info and other features
 - [x] Power Modules schematic 
 - [x] Reverse voltage protection
 - [x] Power rails schematic
