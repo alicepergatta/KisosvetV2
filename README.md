@@ -34,6 +34,8 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 
 ## TODO:
 
+- [ ] Implement authorization on ESP8266
+- [ ] Enable and configure WWDG for STM32
 - [ ] Add 7-seg display for two-factor auth, system info and other features
 - [x] Power Modules schematic 
 - [x] Reverse voltage protection
