@@ -42,13 +42,13 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [x] PWM regulation and calibration(for each PM\LED) functionality
 - [x] PM on\off
 - [x] Main STM32 project code
-
+- [x] Implement full control over UDP, including transmiting data from device to client application
 - [x] Build firmware for ESP8266
 - [ ] Add MQTT protocol support 
 - [x] Make normal CLI over UART for STM32+ESP8266 interconnect
-- [ ] Add DS18B20 functionality 
-- [ ] Add fan PWM level-shifter and configure TIM2 for it
-- [ ] Write fan control logic
+- [x] Add DS18B20 full functionality 
+- [x] Add fan PWM level-shifter and configure TIM2 for it
+- [x] Write fan control logic and overheat protection
 - [ ] Replace linear VREG's for step-down modules, to achieve bettter energy efficiency
 - [ ] Get better LDO VREG's
 - [ ] Write code for ADC(voltage measuring)
