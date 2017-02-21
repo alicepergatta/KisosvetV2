@@ -542,6 +542,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\DS18B20.c</FilePath>
             </File>
+            <File>
+              <FileName>FlashMemory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FlashMemory.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

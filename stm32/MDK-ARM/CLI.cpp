@@ -53,6 +53,8 @@ void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
 //void GetTemp(void);
 void GetTemperature(void);
+void FanLogic(char *arg);
+void AdcDatahandler(void);
 
 
 void CReturnCmd(void) { 
@@ -182,6 +184,12 @@ void GetCommands(void) {
 		if(strncmp(command, "gettemp", 7) == 0) {
 			CliGetTemperature();
 			}
+		if(strncmp(command, "fanlogic", 8) == 0) {
+			FanLogic(argument1);
+			}
+		if(strncmp(command, "getadcdata", 8) == 0) {
+			AdcDatahandler();
+			}
 		
 //		else {
 //			printf("Uknown command \n\r"); //Carrier return + newlin,
@@ -254,13 +262,6 @@ void CLI_toogleEcho(void) { //switch CLI ECHO
 	break;
 		}
 }
-void CliGetTemperature()
-{
-	GetTemperature();
-	printf("Current LED's temperature: %d C \t", LedsTemperature);
-	printf("  Last: %i C \t", OldLedsTemperature); 
-	printf(" \n\r");
-	}
 
 
 

@@ -4,6 +4,7 @@ kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.
 kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
 kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\string.h
+kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 kisosvet2b\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\main.o: ../Inc/stm32f1xx_hal_conf.h
 kisosvet2b\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -11,7 +12,6 @@ kisosvet2b\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 kisosvet2b\main.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 kisosvet2b\main.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 kisosvet2b\main.o: ../Drivers/CMSIS/Include/core_cm3.h
-kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 kisosvet2b\main.o: ../Drivers/CMSIS/Include/core_cmInstr.h
 kisosvet2b\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 kisosvet2b\main.o: ../Drivers/CMSIS/Include/core_cmFunc.h

@@ -61,8 +61,8 @@ UART_HandleTypeDef huart3;
 
 
 	//configuration
-short L_ECHO = 1;  //Local echo(CLI), to see what you type
-short CMD_ANSWER = 1; //Write reply on command or not
+short L_ECHO = 0;  //Local echo(CLI), to see what you type 1 - ON, 0 - OFF
+short CMD_ANSWER = 1; //Write reply on command or not, not yet implemented
 
 /* USER CODE END PV */
 
@@ -78,6 +78,7 @@ static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART3_UART_Init(void);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc);
 int LED_CVAL(int, int);
 void LED_SW(void);
 void CReturnCmd(void);
@@ -129,6 +130,8 @@ HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 	//TIM3 start
 HAL_TIM_Base_Start(&htim3);
+
+HAL_ADCEx_InjectedStart_IT(&hadc1); //start ADC
 
 	//Sending greeting in terminal once after reset
 printf("Meow! Kisosvet V2 has started \n\r");
@@ -217,28 +220,45 @@ void SystemClock_Config(void)
 static void MX_ADC1_Init(void)
 {
 
-  ADC_ChannelConfTypeDef sConfig;
+  //ADC_ChannelConfTypeDef sConfig;
+  ADC_InjectionConfTypeDef sConfigInjected;
 
     /**Common config 
     */
   hadc1.Instance = ADC1;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 2;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
     Error_Handler();
   }
 
-    /**Configure Regular Channel 
+
+
+    /**Configure Injected Channel 
     */
-  sConfig.Channel = ADC_CHANNEL_4;
-  sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  sConfigInjected.InjectedChannel = ADC_CHANNEL_4;
+  sConfigInjected.InjectedRank = 1;
+  sConfigInjected.InjectedNbrOfConversion = 2;
+  sConfigInjected.InjectedSamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfigInjected.ExternalTrigInjecConv = ADC_INJECTED_SOFTWARE_START;
+  sConfigInjected.AutoInjectedConv = DISABLE;
+  sConfigInjected.InjectedDiscontinuousConvMode = DISABLE;
+  sConfigInjected.InjectedOffset = 0;
+  if (HAL_ADCEx_InjectedConfigChannel(&hadc1, &sConfigInjected) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+    /**Configure Injected Channel 
+    */
+	sConfigInjected.InjectedChannel = ADC_CHANNEL_5;
+  sConfigInjected.InjectedRank = 2;
+  if (HAL_ADCEx_InjectedConfigChannel(&hadc1, &sConfigInjected) != HAL_OK)
   {
     Error_Handler();
   }
@@ -475,7 +495,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+AdcCh1Value = HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_1);
+AdcCh2Value = HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_2);
+HAL_ADCEx_InjectedStart_IT(&hadc1);
+} 
+  
 /* USER CODE END 4 */
 
 /**

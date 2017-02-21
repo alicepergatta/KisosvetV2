@@ -11,34 +11,40 @@
 short buttonState; //where the button state stored
 short PS_ON = 0;
 short FAN_EN = 0;
-int FAN_PWM = 225; //from 0 to 255
+int FAN_PWM = 225; //from 0 to 255 (0 - means max RPM!, fan PWM seems to be inverted)
 
 void PSU_SWITCH(char *arg);
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
 void char2short(char* pchar, short* pshort);
 void char2int(char* pchar, int* pint);
 void GetTemperature(void);
-void FanLogic(void);
+void CliGetTemperature(void);
+void FanLogic(char *arg);
+void AdcDatahandler(void);
+	
 
-short btn_state = 0;
- char arg1[20] = "0";
- char arg2[20] = "0";
- char arg3[20] = "0";
+char FanLogicArg1[10] = "nc"; //default arg, not change
+short FanLogicMode = 1; //default on
+short btn_state = 0; //this variable store button state
+
  
-signed int FanOnThresholdTemp = 455; //Temperature at which fan will start work 
+signed int FanOnThresholdTemp = 355; //Temperature at which fan will start work 
 signed int FanOffThresholdTemp = 255; //Temperature at which fan will stop work, if system cooled enough
 signed int CriticalLedsTemperature = 855; //When reached, LED's will OFF to prevent damage
+signed int LedsTemperatureDiff = 0; //Difference between previous and last measure
+
+volatile uint32_t AdcCh1Value = 0; //raw data from ADC, ch1
+volatile uint32_t AdcCh2Value = 0; //raw data from ADC, ch2
 
 void Auxiliary(void)
 {
 
 		
 	
-TIM2->CCR1 = FAN_PWM; //Set PWM value for fan
-		
+TIM2->CCR1 = FAN_PWM; //Set PWM value for fan	
 buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
 GetTemperature();	//get temperature value into global variable from DS18B20 sensor
-FanLogic();
+FanLogic(FanLogicArg1);
 
 			//switch for button actions
 switch (buttonState)
@@ -106,6 +112,13 @@ return;
   }
   /* USER CODE END 3 */
  
+void CliGetTemperature()
+{
+	GetTemperature();
+	printf("Current LED's temperature: %d C \t", LedsTemperature);
+	printf("  Last: %i C \t", OldLedsTemperature); 
+	printf(" \n\r");
+}
 void PSU_SWITCH(char *arg) { //PSU on\off command function
 	if(strncmp(arg, "ON", 2) == 0) {
 		PS_ON = 1;
@@ -162,28 +175,81 @@ void FAN_SWITCH(char *arg1, char *arg2) { //PSU on\off command function
 
 
 
-void FanLogic()
+void FanLogic(char *arg)
 {
+	if((strncmp(arg, "on", 2) == 0) && (arg != NULL))  //Mode change code block
+	{
+		FanLogicMode = 1;
+		printf("Automatic FAN control turned ON \n\r");
+		printf("OK \n\r");
+		//printf("%i  \n\r", LedsTemperatureDiff); //debug
+	}
+	
+	if((strncmp(arg, "off", 3) == 0) && (arg != NULL)) 
+	{
+		FanLogicMode = 0;
+		printf("Automatic FAN control turned OFF!!! \n\r");
+		printf("OK \n\r");
+	}
+	
+	if((strncmp(arg, "nc", 2) == 0) && (arg != NULL)) 
+	{	
+		//printf("OK \n\r");
+	}																													//Mode change code block end
+	
+	
+	switch (FanLogicMode)
+		{
+		case 1: //If turned on, make actions
 	if (LedsTemperature >= FanOnThresholdTemp) 
 	{
 		FAN_EN = 1;
+		FAN_PWM = 200;
 	}
 	if (LedsTemperature <= FanOffThresholdTemp) 
 	{
 		FAN_EN = 0;
 		FAN_PWM = 255;
-	}
-	if ((LedsTemperature > OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) 
+	}													//if any diffrence
+	if ((LedsTemperature != OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) //If current temperature differ than previous and != FanOffThresholdTemp
 	{
-		while (FAN_PWM != 0)
-		FAN_PWM = (FAN_PWM - 1);
+		LedsTemperatureDiff = (LedsTemperature - OldLedsTemperature); //count difference
+		if (((LedsTemperatureDiff >= 1) && (FAN_PWM >= 1))) //if diffrence equal or more than 0,1С  
+		{
+			if (FAN_PWM != 1) 
+			{
+		FAN_PWM = (FAN_PWM - 10); //increase fan RPM
+			}
+		}
+		if ((LedsTemperatureDiff <= -2) && (FAN_PWM <= 255)) //if diffrence equal or more than 0,1С  
+		{
+			if (FAN_PWM != 254) 
+			{
+		FAN_PWM = (FAN_PWM + 5); //decrease fan RPM
+			}
+		}
 	}
-	if ((LedsTemperature < OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) 
+	
+	if (LedsTemperature >= CriticalLedsTemperature) //If current temperature equal or above critical 
 	{
-		while (FAN_PWM != 0)
-			//(fan_value >=1 && fan_value <= 255)
-		FAN_PWM = (FAN_PWM + 1);
+		LED1_EN = LED2_EN = LED3_EN = LED4_EN = 0; //Off all LED's
+		LED1_PWM = LED2_PWM = LED3_PWM = LED4_PWM = 0; //set all LED's PWM to zero
+		FAN_PWM = 1; //fan PWM to max value
+		FAN_EN = 1; //fan turn on
+	}
+	break;
+		case 0: //do nothing
+	break;
+		default:
+	break;
 	}
 	return;
-}
+	}
 
+	
+void AdcDatahandler()
+{
+	printf("%i ADC CH1 \n\r", AdcCh1Value); //debug
+	printf("%i ADC CH2 \n\r", AdcCh2Value); //debug
+}
+	

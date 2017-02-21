@@ -40,6 +40,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
@@ -123,6 +124,7 @@ extern int LED4_EN;
 	//FAN PWM value, to control fan speed
 extern int FAN_PWM;
 extern short FAN_EN;
+extern char FanLogicArg1[10];
 
 	//temperature on DS18B20
 extern signed int LedsTemperature;	
@@ -131,6 +133,10 @@ extern signed int OldLedsTemperature;
 	
 	//Power ON ATX PSU by KisoSvet)
 extern short PS_ON;
+
+	//ADC
+extern volatile uint32_t AdcCh1Value; //channel 1 ADC raw value 
+extern volatile uint32_t AdcCh2Value; //channel 2 ADC raw value
 
 	//Buffers for UART
 extern char transmitBuffer[128];
