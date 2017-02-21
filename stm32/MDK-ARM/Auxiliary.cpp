@@ -223,7 +223,7 @@ void FanLogic(char *arg)
 		}
 		if ((LedsTemperatureDiff <= -2) && (FAN_PWM <= 255)) //if diffrence equal or more than 0,1С  
 		{
-			if (FAN_PWM != 254) 
+			if (FAN_PWM != 254) //If fan pwm value  
 			{
 		FAN_PWM = (FAN_PWM + 5); //decrease fan RPM
 			}

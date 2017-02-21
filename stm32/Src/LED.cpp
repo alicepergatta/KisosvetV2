@@ -466,6 +466,10 @@ int LED_CVAL(int VAL, int CAL, char sign)  //Function for setting corrected PWM 
 		if (sign == '+') {
 	PWM = VAL + CAL;
 		}
+		if (PWM > 65535) //prevent overflow
+		{
+			PWM = 65535;
+		}
   return PWM;
 	}	
 

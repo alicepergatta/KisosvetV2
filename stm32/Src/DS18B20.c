@@ -222,10 +222,15 @@ signed int ds_read_temperature(uint8_t PinNumb)
 			case 1: //Measure started
 				NewTickTime = HAL_GetTick(); //get tick time to measure diffrence
 				TickTimeDiff = (NewTickTime - OldTickTime); //compute diffrence
-			if (TickTimeDiff >= 1000) 
+			if (TickTimeDiff >= 187) //Conversion time 
 				{
+					
 				OldLedsTemperature = LedsTemperature; //move last measured value, into separate value
 				LedsTemperature = ds_read_temperature(PinNumber);   //прочитать результат измерения
+				if (LedsTemperature == 1280) //If error got, not write new value
+					{
+					LedsTemperature = OldLedsTemperature; 						
+					}
 				GetTemperatureState = 0; //change state for new measures
 				OldTickTime = 0; //re-zero values
 				NewTickTime = 0; //re-zero values

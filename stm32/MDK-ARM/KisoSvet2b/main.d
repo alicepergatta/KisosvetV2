@@ -1,10 +1,10 @@
 kisosvet2b\main.o: ../Src/main.c
 kisosvet2b\main.o: ../Inc/main.h
-kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
-kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
-kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
-kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\string.h
-kisosvet2b\main.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+kisosvet2b\main.o: C:\Program Files\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+kisosvet2b\main.o: C:\Program Files\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+kisosvet2b\main.o: C:\Program Files\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+kisosvet2b\main.o: C:\Program Files\Keil\ARM\ARMCC\Bin\..\include\string.h
+kisosvet2b\main.o: C:\Program Files\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 kisosvet2b\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\main.o: ../Inc/stm32f1xx_hal_conf.h
 kisosvet2b\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
