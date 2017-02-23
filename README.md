@@ -53,7 +53,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - [x] Write fan control logic and overheat protection
 - [ ] Replace linear VREG's for step-down modules, to achieve bettter energy efficiency
 - [ ] Get better LDO VREG's
-- [ ] Write code for ADC(voltage measuring)
+- [x] Write code for ADC(voltage measuring)
 - [ ] Write wake-up and sleep functionality code
 - [ ] Make a few variants for device case
 - [x] Implement CLI syntax
