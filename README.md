@@ -12,7 +12,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - Color temperature regulation, and white color calibration
 - Different LED types for full spectre(WW + NW or WW + CW for example)
 - Flickering-free power modules and control circuitry schematic
-- DC-DC converter based power modules, wich can work at different voltage - in car, at home, everywhere with lithium battery pack.
+- DC-DC converter based power modules, which can work at different voltage - in car, at home, everywhere with lithium battery pack.
 - STM32 microcontroller as a "brain"
 - ESP8266 for networking functionality
 - User-friendly control from android-application 
