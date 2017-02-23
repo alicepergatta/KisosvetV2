@@ -27,6 +27,8 @@ char FanLogicArg1[10] = "nc"; //default arg, not change
 short FanLogicMode = 1; //default on
 short btn_state = 0; //this variable store button state
 
+float InputVoltage;
+float BackupBatVoltage;
  
 signed int FanOnThresholdTemp = 355; //Temperature at which fan will start work 
 signed int FanOffThresholdTemp = 255; //Temperature at which fan will stop work, if system cooled enough
@@ -249,6 +251,8 @@ void FanLogic(char *arg)
 	
 void AdcDatahandler()
 {
+	InputVoltage = ((AdcCh1Value * 3300) / 4095);
+	BackupBatVoltage = ((AdcCh1Value * 3300) / 4095);
 	printf("%i ADC CH1 \n\r", AdcCh1Value); //debug
 	printf("%i ADC CH2 \n\r", AdcCh2Value); //debug
 }

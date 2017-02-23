@@ -11,12 +11,12 @@ srv:listen(port)
 uart.alt(1)
 
     srv:on("receive",function(c,l)
+        c:send("Received")
          --uart.write(0, "\r")
          --uart.write(0,"\n") 
          uart.write(0, l)
 		 uart.write(0,"\r") 
          
-        c:send("Received")
         collectgarbage()
     end)
 
@@ -27,13 +27,13 @@ uart.alt(1)
     uart.on("data", "\r",
         function(data)
             srv:send(data)
-            last_data = data
+            --last_data = data
             collectgarbage()
     end, 0)
 
-if last_data == "uart_alt \n\r" then
-uart.alt(1)
-end
+--if last_data == "uart_alt \n\r" then
+--uart.alt(1)
+--end
 
 
 
