@@ -20,15 +20,16 @@ void char2int(char* pchar, int* pint);
 void GetTemperature(void);
 void CliGetTemperature(void);
 void FanLogic(char *arg);
-void AdcDatahandler(void);
+void AdcDatahandler(char *arg);
 	
 
 char FanLogicArg1[10] = "nc"; //default arg, not change
+char AdcDatahandlerArg[10] = "nc"; //default arg, not change
 short FanLogicMode = 1; //default on
 short btn_state = 0; //this variable store button state
 
-float InputVoltage;
-float BackupBatVoltage;
+float DeviceInputVoltage = 0;
+float BackupBatVoltage = 0;
  
 signed int FanOnThresholdTemp = 355; //Temperature at which fan will start work 
 signed int FanOffThresholdTemp = 255; //Temperature at which fan will stop work, if system cooled enough
@@ -46,14 +47,15 @@ void Auxiliary(void)
 TIM2->CCR1 = FAN_PWM; //Set PWM value for fan	
 buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
 GetTemperature();	//get temperature value into global variable from DS18B20 sensor
-FanLogic(FanLogicArg1);
+FanLogic(FanLogicArg1); //control fan 
+AdcDatahandler(AdcDatahandlerArg); //convert ADC values into voltage values
 
 			//switch for button actions
 switch (buttonState)
 {	
 	case 0:
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
-	printf("Meow! Button pressed. \n\r");
+	//printf("Meow! Button pressed. \n\r");
 //	if (btn_state == 0) 
 //		{
 //			strcpy(arg1, "ALL");
@@ -249,11 +251,28 @@ void FanLogic(char *arg)
 	}
 
 	
-void AdcDatahandler()
+void AdcDatahandler(char *arg) //calculate and print voltage values
 {
-	InputVoltage = ((AdcCh1Value * 3300) / 4095);
-	BackupBatVoltage = ((AdcCh1Value * 3300) / 4095);
-	printf("%i ADC CH1 \n\r", AdcCh1Value); //debug
-	printf("%i ADC CH2 \n\r", AdcCh2Value); //debug
+	DeviceInputVoltage = ((AdcCh1Value * 3300) / 4095); //calculate values
+	BackupBatVoltage = ((AdcCh2Value * 3300) / 4095); //calculate values
+	
+	if((strncmp(arg, "v", 2) == 0) && (arg != NULL))  //Mode change code block
+	{
+	printf("Input Voltage: %f \n\r", DeviceInputVoltage);
+	printf("BAT Voltage: %f \n\r", BackupBatVoltage);
+	}
+	
+	if((strncmp(arg, "adc", 3) == 0) && (arg != NULL)) 
+	{
+	printf("%i ADC CH1(Main Power) \n\r", AdcCh1Value); //debug
+	printf("%i ADC CH2(Backup Battery) \n\r", AdcCh2Value); //debug
+	}
+	
+	if((strncmp(arg, "nc", 2) == 0) && (arg != NULL)) 
+	{	
+		//do nothing
+	}		
+	
+	return;
 }
 	

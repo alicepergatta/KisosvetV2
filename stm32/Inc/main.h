@@ -138,7 +138,7 @@ extern short PS_ON;
 extern volatile uint32_t AdcCh1Value; //channel 1 ADC raw value 
 extern volatile uint32_t AdcCh2Value; //channel 2 ADC raw value
 
-extern float InputVoltage; //Voltage which powers Kisosvet
+extern float DeviceInputVoltage; //Voltage which powers Kisosvet
 extern float BackupBatVoltage; //Internal battery voltage
 
 	//Buffers for UART

@@ -30,6 +30,7 @@ short ret_pos;
 short testshort; //test
 int testint; //test
 
+
 void ParseCmdString(void);
 void CReturnCmd(void);
 void substring_cut(void);
@@ -54,7 +55,7 @@ void char2int(char* pchar, int* pint);
 //void GetTemp(void);
 void GetTemperature(void);
 void FanLogic(char *arg);
-void AdcDatahandler(void);
+void AdcDatahandler(char *arg);
 
 
 void CReturnCmd(void) { 
@@ -188,7 +189,7 @@ void GetCommands(void) {
 			FanLogic(argument1);
 			}
 		if(strncmp(command, "getadcdata", 8) == 0) {
-			AdcDatahandler();
+			AdcDatahandler(argument1);
 			}
 		
 //		else {
@@ -238,6 +239,9 @@ void Status(void) {
 	printf(" \n\r");
 	printf("Current LED's temperature: %d C \t", LedsTemperature);
 	printf("  Last: %i C \t", OldLedsTemperature); 
+	printf(" \n\r");
+	printf("Input Voltage: %f \n\r", DeviceInputVoltage);
+	printf("BAT Voltage: %f \n\r", BackupBatVoltage);
 	printf(" \n\r");
 }
 
