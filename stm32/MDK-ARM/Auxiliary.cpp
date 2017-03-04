@@ -9,9 +9,13 @@
 
 	//Peripherals
 short buttonState; //where the button state stored
+short ENC1buttonState; //where the Encoder1 button state stored
+short ENC2buttonState; //where the Encoder2 state stored
+short StatLed1State = 0;
+short StatLed2State = 0;
 short PS_ON = 0;
 short FAN_EN = 0;
-int FAN_PWM = 225; //from 0 to 255 (0 - means max RPM!, fan PWM seems to be inverted)
+int FAN_PWM = 200; //from 0 to 255 (0 - means max RPM!, fan PWM seems to be inverted)
 
 void PSU_SWITCH(char *arg);
 void LED_CLI(char *led_num, char *led_en, char *led_pwm);
@@ -21,7 +25,7 @@ void GetTemperature(void);
 void CliGetTemperature(void);
 void FanLogic(char *arg);
 void AdcDatahandler(char *arg);
-	
+void StatLEDsControl(char *arg1, char *arg2); //status LEDs on\off command function
 
 char FanLogicArg1[10] = "nc"; //default arg, not change
 char AdcDatahandlerArg[10] = "nc"; //default arg, not change
@@ -46,6 +50,8 @@ void Auxiliary(void)
 	
 TIM2->CCR1 = FAN_PWM; //Set PWM value for fan	
 buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
+ENC1buttonState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15); //read button state
+ENC2buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8); //read button state
 GetTemperature();	//get temperature value into global variable from DS18B20 sensor
 FanLogic(FanLogicArg1); //control fan 
 AdcDatahandler(AdcDatahandlerArg); //convert ADC values into voltage values
@@ -54,34 +60,43 @@ AdcDatahandler(AdcDatahandlerArg); //convert ADC values into voltage values
 switch (buttonState)
 {	
 	case 0:
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
-	//printf("Meow! Button pressed. \n\r");
-//	if (btn_state == 0) 
-//		{
-//			strcpy(arg1, "ALL");
-//			strcpy(arg2, "ON");
-//			strcpy(arg3, "MIN");
-//		LED_CLI(arg1, arg2, arg3);
-//		btn_state = 1;
-//		HAL_Delay(1000);
-//		}
-//	if (btn_state == 1) 
-//		{
-//			strcpy(arg1, "ALL");
-//			strcpy(arg2, "OFF");
-//			strcpy(arg3, "MIN");
-//		LED_CLI(arg1, arg2, arg3);
-//		btn_state = 0;
-//		HAL_Delay(1000);
-//		}
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
 		break;
 	case 1:
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 		break;
 	default:
 		break;
 }
+
+	//switch for button actions
+switch (ENC1buttonState)
+{	
+	case 0:
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); //!!!!!
+	//StatLed1State = 1;
 	
+		break;
+	case 1:
+	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+	//StatLed1State = 0;
+		break;
+	default:
+		break;
+}
+
+//switch for button actions
+switch (ENC2buttonState)
+{	
+	case 0:
+	//StatLed2State = 1;
+		break;
+	case 1:
+	//StatLed2State = 0;
+		break;
+	default:
+		break;
+}
 	
 	
 
@@ -97,6 +112,32 @@ HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 	default:
 break;
 }
+
+switch(StatLed1State) //STAT_LED2 switch
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+	break;
+	case 0:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+	break;
+	default:
+break;
+}
+
+
+switch(StatLed2State) //STAT_LED2 switch
+{
+	case 1:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
+	break;
+	case 0:
+HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
+	break;
+	default:
+break;
+}
+
 
 switch(FAN_EN)
 {
@@ -173,6 +214,73 @@ void FAN_SWITCH(char *arg1, char *arg2) { //PSU on\off command function
 
 
 
+void StatLEDsControl(char *arg1, char *arg2) //status LEDs on\off command function
+	{ 
+	short ledstate;
+	short lednum;
+
+if (arg1 != NULL) //If arg1 not empty, get lednum value
+{
+	char2short(arg1, &lednum);
+}
+
+if (arg2 != NULL) //If arg2 not empty, get ledstate value
+{
+	char2short(arg2, &ledstate);
+}
+
+switch(lednum)
+{
+	case 0:
+		printf("Wrong lednum /r/n");
+		break;
+	case 1: //If lednum = 1
+		if (lednum == 1) 
+		{
+	switch(ledstate)
+	{
+		case 0: //If ledstate = 0 (OFF)
+			StatLed1State = 0;
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+		break;
+		case 1:
+			StatLed1State = 1; //If ledstate = 1 (ON)
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+			break;
+		default:
+			printf("Wrong ledstate /r/n");
+			break;
+		}
+		break;
+	}
+	case 2: //If lednum = 2
+		if (lednum == 2)
+		{
+	switch(ledstate)
+	{
+		case 0:
+			StatLed2State = 0; //If ledstate = 0 (OFF)
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
+		break;
+		case 1:
+			StatLed2State = 1; //If ledstate = 1 (ON)
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
+			break;
+		default:
+			printf("Wrong ledstate /r/n");
+			break;
+		}
+	break;
+	default:
+		//printf("Wrong lednum /r/n");
+		break;
+	}	
+}
+	return;
+}
+
+
+
 
 
 
@@ -208,12 +316,14 @@ void FanLogic(char *arg)
 	if (LedsTemperature >= FanOnThresholdTemp) 
 	{
 		FAN_EN = 1;
-		FAN_PWM = 200;
+		//FAN_PWM = 150;
+		return;
 	}
 	if (LedsTemperature <= FanOffThresholdTemp) 
 	{
 		FAN_EN = 0;
 		FAN_PWM = 255;
+		return;
 	}													//if any diffrence
 	if ((LedsTemperature != OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) //If current temperature differ than previous and != FanOffThresholdTemp
 	{
@@ -222,16 +332,22 @@ void FanLogic(char *arg)
 		{
 			if (FAN_PWM != 1) 
 			{
-		FAN_PWM = (FAN_PWM - 10); //increase fan RPM
+		FAN_PWM = (FAN_PWM - 1); //increase fan RPM
+		LedsTemperatureDiff = 0; //re-zero
+				return;
 			}
 		}
-		if ((LedsTemperatureDiff <= -2) && (FAN_PWM <= 255)) //if diffrence equal or more than 0,1С  
+		if ((LedsTemperatureDiff == -1) && (FAN_PWM <= 255)) //if diffrence equal or more than 0,1С  
 		{
-			if (FAN_PWM != 254) //If fan pwm value  
-			{
-		FAN_PWM = (FAN_PWM + 5); //decrease fan RPM
-			}
+			//if (FAN_PWM != 254) //If fan pwm value  
+			//{
+		FAN_PWM = (FAN_PWM + 1); //decrease fan RPM
+		LedsTemperatureDiff = 0; //re-zero
+			return;
+			//}
 		}
+		LedsTemperatureDiff = 0; //re-zero
+		return;
 	}
 	
 	if (LedsTemperature >= CriticalLedsTemperature) //If current temperature equal or above critical 
@@ -240,6 +356,7 @@ void FanLogic(char *arg)
 		LED1_PWM = LED2_PWM = LED3_PWM = LED4_PWM = 0; //set all LED's PWM to zero
 		FAN_PWM = 1; //fan PWM to max value
 		FAN_EN = 1; //fan turn on
+		return;
 	}
 	break;
 		case 0: //do nothing
@@ -276,3 +393,6 @@ void AdcDatahandler(char *arg) //calculate and print voltage values
 	return;
 }
 	
+
+
+

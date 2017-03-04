@@ -56,7 +56,7 @@ void char2int(char* pchar, int* pint);
 void GetTemperature(void);
 void FanLogic(char *arg);
 void AdcDatahandler(char *arg);
-
+void StatLEDsControl(char *arg1, char *arg2); //status LEDs on\off command function
 
 void CReturnCmd(void) { 
 
@@ -164,32 +164,45 @@ void ClearCmdAndArguments(void) //function which clears parsed command and argum
 
 void GetCommands(void) {
 	
-		if(strncmp(command, "LED", 3) == 0) {
+		if(strncmp(command, "LED", 3) == 0) 
+			{
 			LED_CLI(argument1, argument2, argument3);
 			}
-		if(strncmp(command, "FAN", 3) == 0) { //FAN on\off command
+		if(strncmp(command, "FAN", 3) == 0) 
+			{ //FAN on\off command
 		FAN_SWITCH(argument1, argument2);
 			}
-		if(strncmp(command, "PSU", 3) == 0) { //PSU on\off command
+		if(strncmp(command, "PSU", 3) == 0) 
+			{ //PSU on\off command
 		PSU_SWITCH(argument1);
 			}
-		if(strncmp(command, "STATUS", 6) == 0) {
+		if(strncmp(command, "STATUS", 6) == 0) 
+			{
 			Status();
 			}
-		if(strncmp(command, "uart_alt", 8) == 0) {
+		if(strncmp(command, "uart_alt", 8) == 0) 
+			{
 			ESP_UART_alt();
 			}
-		if(strncmp(command, "toogleEcho", 10) == 0) {
+		if(strncmp(command, "toogleEcho", 10) == 0) 
+			{
 			CLI_toogleEcho();
 			}
-		if(strncmp(command, "gettemp", 7) == 0) {
+		if(strncmp(command, "gettemp", 7) == 0) 
+			{
 			CliGetTemperature();
 			}
-		if(strncmp(command, "fanlogic", 8) == 0) {
+		if(strncmp(command, "fanlogic", 8) == 0) 
+			{
 			FanLogic(argument1);
 			}
-		if(strncmp(command, "getadcdata", 8) == 0) {
+		if(strncmp(command, "getadcdata", 8) == 0) 
+			{
 			AdcDatahandler(argument1);
+			}
+		if(strncmp(command, "statleds", 8) == 0) 
+			{
+			StatLEDsControl(argument1, argument2);
 			}
 		
 //		else {

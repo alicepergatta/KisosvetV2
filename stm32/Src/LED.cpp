@@ -41,7 +41,7 @@ int LED4_ALL_VALUE = 0;
 
 int i = 0;
 int MAX_PWM = 60400;
-int MIN_PWM = 51000;
+int MIN_PWM = 49000;
 
 int old_led_pwm_value = 0;
 int old_led_en_value = 0;

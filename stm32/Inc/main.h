@@ -115,6 +115,8 @@ extern char LED4_CAL_SIGN;
 extern int MAX_PWM;
 extern int MIN_PWM;
 extern short buttonState; //where the button state stored
+extern short ENC1buttonState; //where the Encoder1 button state stored
+extern short ENC2buttonState; //where the Encoder2 state stored
 
 	//ON-OFF PM's by those values
 extern int LED1_EN;

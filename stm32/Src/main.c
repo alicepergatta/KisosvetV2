@@ -83,7 +83,7 @@ int LED_CVAL(int, int);
 void LED_SW(void);
 void CReturnCmd(void);
 void GetTemperature(void);
-
+void FlashTest(void); //debug
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -135,6 +135,7 @@ HAL_ADCEx_InjectedStart_IT(&hadc1); //start ADC
 
 	//Sending greeting in terminal once after reset
 printf("Meow! Kisosvet V2 has started \n\r");
+//FlashTest();
 //GetTemperature(); //test, try to get temperature
 
   /* USER CODE BEGIN 2 */
@@ -455,11 +456,21 @@ static void MX_GPIO_Init(void)
 	
 	
 	
-	  /*Configure GPIO pins : BTN_1_Pin PA8 */
+	  /*Configure GPIO pins : ENC2_SW */
   GPIO_InitStruct.Pin = BTN_1_Pin|GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Pull = GPIO_PULLUP; 
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	
+	  /*Configure GPIO pins : ENC1_SW */
+  GPIO_InitStruct.Pin = GPIO_PIN_15;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Pull = GPIO_PULLUP; 
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+	
 
   /*Configure GPIO pins : EXT_L_1_Pin STAT_LED1_Pin STAT_LED2_Pin LED1_EN_Pin 
                            LED2_EN_Pin LED3_EN_Pin LED4_EN_Pin */
@@ -477,8 +488,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PB1 PB2 PB13 PB14 
                            ENC1_SW_Pin PB5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_13|GPIO_PIN_14 
-                          |ENC1_SW_Pin|GPIO_PIN_5;
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
