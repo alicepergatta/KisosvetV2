@@ -26,19 +26,27 @@ void CliGetTemperature(void);
 void FanLogic(char *arg);
 void AdcDatahandler(char *arg);
 void StatLEDsControl(char *arg1, char *arg2); //status LEDs on\off command function
+void ButtonFunctions(short btn_num, short btn_state); //Buttons functionality
 
 char FanLogicArg1[10] = "nc"; //default arg, not change
 char AdcDatahandlerArg[10] = "nc"; //default arg, not change
 short FanLogicMode = 1; //default on
 short btn_state = 0; //this variable store button state
+uint32_t LastBtnPress = 0;
+short LastBtnPressState = 0;
+short CurrentBtnPressState = 0;
+uint32_t CurrentBtnPress = 0;
+
 
 float DeviceInputVoltage = 0;
 float BackupBatVoltage = 0;
- 
+
+short FanLogicHist = 10; //value at which current temperature should be less than FanOnThresholdTemp
 signed int FanOnThresholdTemp = 355; //Temperature at which fan will start work 
-signed int FanOffThresholdTemp = 255; //Temperature at which fan will stop work, if system cooled enough
+signed int FanOffThresholdTemp = 265; //Temperature at which fan will stop work, if system cooled enough
 signed int CriticalLedsTemperature = 855; //When reached, LED's will OFF to prevent damage
 signed int LedsTemperatureDiff = 0; //Difference between previous and last measure
+short FanHistDiff = 0;
 
 volatile uint32_t AdcCh1Value = 0; //raw data from ADC, ch1
 volatile uint32_t AdcCh2Value = 0; //raw data from ADC, ch2
@@ -75,6 +83,7 @@ switch (ENC1buttonState)
 	case 0:
 	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); //!!!!!
 	//StatLed1State = 1;
+	ButtonFunctions(1, 1); //1 - means pressed
 	
 		break;
 	case 1:
@@ -90,6 +99,7 @@ switch (ENC2buttonState)
 {	
 	case 0:
 	//StatLed2State = 1;
+	ButtonFunctions(2, 1);
 		break;
 	case 1:
 	//StatLed2State = 0;
@@ -289,6 +299,9 @@ switch(lednum)
 
 void FanLogic(char *arg)
 {
+	
+	FanHistDiff = FanOffThresholdTemp - FanLogicHist;
+	
 	if((strncmp(arg, "on", 2) == 0) && (arg != NULL))  //Mode change code block
 	{
 		FanLogicMode = 1;
@@ -313,18 +326,34 @@ void FanLogic(char *arg)
 	switch (FanLogicMode)
 		{
 		case 1: //If turned on, make actions
+			
+			
+		 
 	if (LedsTemperature >= FanOnThresholdTemp) 
 	{
 		FAN_EN = 1;
-		//FAN_PWM = 150;
+		FAN_PWM = 150;
 		return;
 	}
+	
 	if (LedsTemperature <= FanOffThresholdTemp) 
 	{
+		//FAN_EN = 1;
+		FAN_PWM = 105;
+		if (LedsTemperature <= FanHistDiff) 
+	{
 		FAN_EN = 0;
-		FAN_PWM = 255;
+		FAN_PWM = 205;
 		return;
-	}													//if any diffrence
+	}			
+		return;
+	}
+	
+
+	
+	//if (LedsTemperature <= FanHistDiff) 
+
+	//if any diffrence
 	if ((LedsTemperature != OldLedsTemperature) && (LedsTemperature != FanOffThresholdTemp)) //If current temperature differ than previous and != FanOffThresholdTemp
 	{
 		LedsTemperatureDiff = (LedsTemperature - OldLedsTemperature); //count difference
@@ -394,5 +423,76 @@ void AdcDatahandler(char *arg) //calculate and print voltage values
 }
 	
 
+void EncoderFunctions()
+{
+}
+
+
+//NewTickTime = HAL_GetTick();
+
+void ButtonFunctions(short btn_num, short btn_state)
+{
+	switch (btn_num) //Switch by button number arg
+	{
+		case 0:
+	switch (btn_state) //Switch by button state arg for Button #0
+	{
+		case 0:
+			break;
+		case 1:
+			break;
+	 default:
+			break;
+		}
+			break;
+		case 1:
+	switch (btn_state) //Switch by button state arg for Button #1(ENC1_SW)
+	{
+		case 0:
+			break;
+		case 1:
+			
+			CurrentBtnPressState = 1;
+	if (CurrentBtnPressState != LastBtnPressState)
+				{
+			PS_ON = 1; //On PSU
+			LastBtnPressState = 1;
+				}
+				else
+				{
+					PS_ON =0; //On PSU
+					LastBtnPressState = 0;
+				}
+			break;
+	 default:
+			break;
+		}
+	break;
+		case 2:
+	switch (btn_state) //Switch by button state arg Button #2(ENC2_SW)
+	{
+		case 0:
+			break;
+		case 1: //Switch on\off all LED's
+	CurrentBtnPressState = 1;
+	if (CurrentBtnPressState != LastBtnPressState)
+				{
+			LED1_EN = LED2_EN = LED3_EN = LED4_EN = 1; //On all LED's
+			LastBtnPressState = 1;
+				}
+				else
+				{
+					LED1_EN = LED2_EN = LED3_EN = LED4_EN = 0; //On all LED's
+					LastBtnPressState = 0;
+				}
+			break;
+	 default:
+			break;
+		}
+			break;
+			default:
+			break;
+		}
+}
 
 

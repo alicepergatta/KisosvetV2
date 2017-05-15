@@ -58,7 +58,7 @@ bool startNewLine = false;
 #define RXBUFSIZE 200
 typedef struct
 {
-char RxBuff[RXBUFSIZE]; //receive buffer
+char RxBuff[RXBUFSIZE]; //receive buffer..
 short RxCnt; //receive counter
 } Serial;
 

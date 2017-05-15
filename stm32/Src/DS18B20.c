@@ -191,24 +191,7 @@ signed int ds_read_temperature(uint8_t PinNumb)
 
 
 
-//void GetTemperature() 
-// {
-//	 
-//		switch (GetTemperatureState)
-//		OldLedsTemperature = LedsTemperature; //move last measured value, into separate value
-//		LedsTemperature = 0; //clear variable for new measure
-//	ds_start_convert_single(PinNumber);     //запустить измерение температуры   
-//	OldTickTime = HAL_GetTick(); //get tick time to measure diffrence
-//		if (TickTimeDiff >= 1000) 
-//		{
-//	 LedsTemperature = ds_read_temperature(PinNumber);   //прочитать результат измерения
-//		}
-//	LedsTemperature = ds_read_temperature(PinNumber);   //прочитать результат измерения
-//		NewTickTime = HAL_GetTick(); //get tick time to measure diffrence
-//		TickTimeDiff = (NewTickTime - OldTickTime); //compute diffrence
-//	printf("%i \n\r", LedsTemperature); //debug	
-//	printf("%i \n\r", TickTimeDiff); //debug	 
-// }
+
  
  void GetTemperature() 
 	{

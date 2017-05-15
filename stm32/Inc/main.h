@@ -45,6 +45,8 @@
 
 /* Private define ------------------------------------------------------------*/
 
+
+#define USE_EXTI
 #define TEMP_Pin GPIO_PIN_1
 #define TEMP_GPIO_Port GPIOA
 #define BTN_1_Pin GPIO_PIN_2

@@ -35,7 +35,7 @@
 #include "stm32f1xx_hal.h"
 #include "CLI.h"
 #include "stdio.h"
-
+#include "stm32f1xx.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -51,7 +51,7 @@ TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
-
+//EXTI_InitTypeDef EXTI_InitStruct;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
@@ -70,6 +70,7 @@ short CMD_ANSWER = 1; //Write reply on command or not, not yet implemented
 void Auxiliary(void);
 void SystemClock_Config(void);
 void Error_Handler(void);
+void EXTI_Configuration(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_ADC1_Init(void);
@@ -77,6 +78,7 @@ static void MX_RTC_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART3_UART_Init(void);
+//void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct); 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc);
 int LED_CVAL(int, int);
@@ -84,6 +86,8 @@ void LED_SW(void);
 void CReturnCmd(void);
 void GetTemperature(void);
 void FlashTest(void); //debug
+void ButtonFunctions(short btn_num, short btn_state); //Buttons functionality
+
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -131,12 +135,17 @@ HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 	//TIM3 start
 HAL_TIM_Base_Start(&htim3);
 
+
+//GPIOExtiConfig(2, ButtonFunctions, (void*)1, BTN_1_Pin);
+
+
 HAL_ADCEx_InjectedStart_IT(&hadc1); //start ADC
+void GPIO_EXTILineConfig(uint8_t GPIO_PortSourceB, uint8_t GPIO_PinSource15); //EXTI for ENC1_SW
+void GPIO_EXTILineConfig(uint8_t GPIO_PortSourceA, uint8_t GPIO_PinSource8); //EXTI for ENC2_SW
 
 	//Sending greeting in terminal once after reset
 printf("Meow! Kisosvet V2 has started \n\r");
-//FlashTest();
-//GetTemperature(); //test, try to get temperature
+
 
   /* USER CODE BEGIN 2 */
 
@@ -457,20 +466,32 @@ static void MX_GPIO_Init(void)
 	
 	
 	  /*Configure GPIO pins : ENC2_SW */
-  GPIO_InitStruct.Pin = BTN_1_Pin|GPIO_PIN_8;
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   //GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Pull = GPIO_PULLUP; 
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 	
-	  /*Configure GPIO pins : ENC1_SW */
+	
+	  /*Configure GPIO pins : BTN_1_Pin */
+  GPIO_InitStruct.Pin = BTN_1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Pull = GPIO_PULLUP; 
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	
+	
+		  /*Configure GPIO pins : ENC1_SW */
   GPIO_InitStruct.Pin = GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   //GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Pull = GPIO_PULLUP; 
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+	//interrupt settings
+
 	
 	
+
 
   /*Configure GPIO pins : EXT_L_1_Pin STAT_LED1_Pin STAT_LED2_Pin LED1_EN_Pin 
                            LED2_EN_Pin LED3_EN_Pin LED4_EN_Pin */
