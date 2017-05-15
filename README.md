@@ -24,7 +24,7 @@ More documentation [Kisosvet wiki](https://github.com/alicepergatta/KisosvetV2/w
 - Wake-up from internal li-ion battery or external duty supply, and power on external PSU - perfect for use wih ATX PSU by pulling down PS_ON pin.
 - Measuring power supply\main battery voltage - you exactly know when battery low.
 
-## My KisosvetV2 configuration(which i build for yourself):
+## My KisosvetV2 configuration(which i build for myself):
 - WW + NW 10W LED's
 - 4 LED's
 - 10W step-down based PM's(for 10W LED's, obviously)
