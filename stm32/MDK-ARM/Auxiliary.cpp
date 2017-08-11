@@ -387,12 +387,14 @@ void EncoderFunctions()
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) //ENC1_SW External interrupt callback
 {
-  if(GPIO_Pin == ENC1_SW_Pin) {
+  if(GPIO_Pin == ENC1_SW_Pin) 
+		{
 		ENC1buttonState = 1;
 		ButtonFunctions(1,1); //button of ENC1, state pressed
   }
 	
-	  if(GPIO_Pin == ENC2_SW_Pin) {
+	  if(GPIO_Pin == ENC2_SW_Pin) 
+			{
 		ENC2buttonState = 1;
 		ButtonFunctions(2,1); //button of ENC1, state pressed
   }

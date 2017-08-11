@@ -3,7 +3,7 @@
   * File Name          : main.h
   * Description        : This file contains the common defines of the application
   ******************************************************************************
-  *
+  * meow meow
   * COPYRIGHT(c) 2016 STMicroelectronics
   *
   * Redistribution and use in source and binary forms, with or without modification,
@@ -65,7 +65,8 @@
 #define STAT_LED3_GPIO_Port GPIOB
 #define ENC1_SW_Pin GPIO_PIN_15
 #define ENC1_SW_GPIO_Port GPIOB
-
+#define ENC2_SW_Pin GPIO_PIN_8
+#define ENC2_SW_GPIO_Port GPIOA
 #define LED1_EN_Pin GPIO_PIN_9
 #define LED1_EN_GPIO_Port GPIOA
 #define LED2_EN_Pin GPIO_PIN_10

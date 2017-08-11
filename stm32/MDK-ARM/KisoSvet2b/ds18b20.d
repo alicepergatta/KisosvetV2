@@ -1,5 +1,5 @@
 kisosvet2b\ds18b20.o: ..\Src\DS18B20.c
-kisosvet2b\ds18b20.o: ../Inc/main.h
+kisosvet2b\ds18b20.o: .\KisoSvet2b\main.h
 kisosvet2b\ds18b20.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 kisosvet2b\ds18b20.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 kisosvet2b\ds18b20.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
@@ -7,6 +7,7 @@ kisosvet2b\ds18b20.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\strin
 kisosvet2b\ds18b20.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 kisosvet2b\ds18b20.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\ds18b20.o: ../Inc/stm32f1xx_hal_conf.h
+kisosvet2b\ds18b20.o: ../Inc/main.h
 kisosvet2b\ds18b20.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 kisosvet2b\ds18b20.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 kisosvet2b\ds18b20.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h

@@ -1,5 +1,5 @@
 kisosvet2b\auxiliary.o: Auxiliary.cpp
-kisosvet2b\auxiliary.o: ../Inc/main.h
+kisosvet2b\auxiliary.o: .\KisoSvet2b\main.h
 kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
@@ -7,6 +7,7 @@ kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\str
 kisosvet2b\auxiliary.o: D:\Program Files (x86)\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 kisosvet2b\auxiliary.o: ../Inc/stm32f1xx_hal_conf.h
+kisosvet2b\auxiliary.o: ../Inc/main.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
 kisosvet2b\auxiliary.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
 kisosvet2b\auxiliary.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
