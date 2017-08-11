@@ -467,8 +467,7 @@ static void MX_GPIO_Init(void)
 	
 	  /*Configure GPIO pins : ENC2_SW */
   GPIO_InitStruct.Pin = GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
 	GPIO_InitStruct.Pull = GPIO_PULLUP; 
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 	
@@ -483,15 +482,10 @@ static void MX_GPIO_Init(void)
 	
 		  /*Configure GPIO pins : ENC1_SW */
   GPIO_InitStruct.Pin = GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
 	GPIO_InitStruct.Pull = GPIO_PULLUP; 
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-	//interrupt settings
-
 	
-	
-
 
   /*Configure GPIO pins : EXT_L_1_Pin STAT_LED1_Pin STAT_LED2_Pin LED1_EN_Pin 
                            LED2_EN_Pin LED3_EN_Pin LED4_EN_Pin */
@@ -508,11 +502,14 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(STAT_LED3_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB1 PB2 PB13 PB14 
-                           ENC1_SW_Pin PB5 */
+                         _Pin PB5 */
   GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+	
+
+	
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, EXT_L_1_Pin|STAT_LED1_Pin|STAT_LED2_Pin, GPIO_PIN_RESET);
@@ -523,7 +520,16 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(STAT_LED3_GPIO_Port, STAT_LED3_Pin, GPIO_PIN_SET);
 
+ /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+	
+	HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 }
+
+
+  
 
 /* USER CODE BEGIN 4 */
 void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)

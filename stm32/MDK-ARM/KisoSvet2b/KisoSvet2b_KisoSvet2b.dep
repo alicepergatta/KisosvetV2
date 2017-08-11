@@ -1,6 +1,6 @@
 Dependencies for Project 'KisoSvet2b', Target 'KisoSvet2b': (DO NOT MODIFY !)
-F (../Src/main.c)(0x58FB9CC8)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\main.o --omf_browse kisosvet2b\main.crf --depend kisosvet2b\main.d)
-I (../Inc/main.h)(0x58FB9481)
+F (../Src/main.c)(0x598D2A82)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\main.o --omf_browse kisosvet2b\main.crf --depend kisosvet2b\main.d)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -38,7 +38,7 @@ I (..\MDK-ARM\CLI.h)(0x586312DC)
 F (../Src/stm32f1xx_hal_msp.c)(0x58ACB855)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_msp.o --omf_browse kisosvet2b\stm32f1xx_hal_msp.crf --depend kisosvet2b\stm32f1xx_hal_msp.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -70,10 +70,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
-F (../Src/stm32f1xx_it.c)(0x58FDA8C1)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_it.o --omf_browse kisosvet2b\stm32f1xx_it.crf --depend kisosvet2b\stm32f1xx_it.d)
+F (../Src/stm32f1xx_it.c)(0x598D31A2)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_it.o --omf_browse kisosvet2b\stm32f1xx_it.crf --depend kisosvet2b\stm32f1xx_it.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -105,9 +105,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
-I (../Inc/stm32f1xx_it.h)(0x58ACB855)
+I (../Inc/stm32f1xx_it.h)(0x598D0AC9)
 F (..\Src\LED.cpp)(0x58B5964E)(--cpp -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\led.o --omf_browse kisosvet2b\led.crf --depend kisosvet2b\led.d)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -142,7 +142,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (.\CLI.cpp)(0x58B82AF6)(--cpp -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\cli.o --omf_browse kisosvet2b\cli.crf --depend kisosvet2b\cli.d)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -181,7 +181,7 @@ F (.\CLI.h)(0x586312DC)()
 F (.\serial.c)(0x585ACFF1)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\serial.o --omf_browse kisosvet2b\serial.crf --depend kisosvet2b\serial.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -213,8 +213,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
-F (.\Auxiliary.cpp)(0x58FB9615)(--cpp -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\auxiliary.o --omf_browse kisosvet2b\auxiliary.crf --depend kisosvet2b\auxiliary.d)
-I (../Inc/main.h)(0x58FB9481)
+F (.\Auxiliary.cpp)(0x598D3AF9)(--cpp -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\auxiliary.o --omf_browse kisosvet2b\auxiliary.crf --depend kisosvet2b\auxiliary.d)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -250,7 +250,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 I (CLI.h)(0x586312DC)
 F (..\Src\DS18B20.c)(0x58CBA1E1)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\ds18b20.o --omf_browse kisosvet2b\ds18b20.crf --depend kisosvet2b\ds18b20.d)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -285,7 +285,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (.\FlashMemory.c)(0x58B7F9F7)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\Src -I .\KisoSvet2b -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\flashmemory.o --omf_browse kisosvet2b\flashmemory.crf --depend kisosvet2b\flashmemory.d)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -330,7 +330,7 @@ I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x58036D42)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x58036CED)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -357,7 +357,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x58320064)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_gpio.o --omf_browse kisosvet2b\stm32f1xx_hal_gpio.crf --depend kisosvet2b\stm32f1xx_hal_gpio.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -392,7 +392,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_pwr.o --omf_browse kisosvet2b\stm32f1xx_hal_pwr.crf --depend kisosvet2b\stm32f1xx_hal_pwr.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -427,7 +427,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c)(0x58036D44)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_adc.o --omf_browse kisosvet2b\stm32f1xx_hal_adc.crf --depend kisosvet2b\stm32f1xx_hal_adc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -462,7 +462,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_flash.o --omf_browse kisosvet2b\stm32f1xx_hal_flash.crf --depend kisosvet2b\stm32f1xx_hal_flash.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -497,7 +497,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c)(0x58036D46)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_tim_ex.o --omf_browse kisosvet2b\stm32f1xx_hal_tim_ex.crf --depend kisosvet2b\stm32f1xx_hal_tim_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -532,7 +532,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_cortex.o --omf_browse kisosvet2b\stm32f1xx_hal_cortex.crf --depend kisosvet2b\stm32f1xx_hal_cortex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -567,7 +567,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_rcc.o --omf_browse kisosvet2b\stm32f1xx_hal_rcc.crf --depend kisosvet2b\stm32f1xx_hal_rcc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -602,7 +602,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_dma.o --omf_browse kisosvet2b\stm32f1xx_hal_dma.crf --depend kisosvet2b\stm32f1xx_hal_dma.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -634,10 +634,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_rtc.o --omf_browse kisosvet2b\stm32f1xx_hal_rtc.crf --depend kisosvet2b\stm32f1xx_hal_rtc.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c)(0x598D092D)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_rtc.o --omf_browse kisosvet2b\stm32f1xx_hal_rtc.crf --depend kisosvet2b\stm32f1xx_hal_rtc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -672,7 +672,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_gpio_ex.o --omf_browse kisosvet2b\stm32f1xx_hal_gpio_ex.crf --depend kisosvet2b\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -707,7 +707,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_rcc_ex.o --omf_browse kisosvet2b\stm32f1xx_hal_rcc_ex.crf --depend kisosvet2b\stm32f1xx_hal_rcc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -742,7 +742,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c)(0x58036D44)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_adc_ex.o --omf_browse kisosvet2b\stm32f1xx_hal_adc_ex.crf --depend kisosvet2b\stm32f1xx_hal_adc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -777,7 +777,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc_ex.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_rtc_ex.o --omf_browse kisosvet2b\stm32f1xx_hal_rtc_ex.crf --depend kisosvet2b\stm32f1xx_hal_rtc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -812,7 +812,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c)(0x58036D46)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_tim.o --omf_browse kisosvet2b\stm32f1xx_hal_tim.crf --depend kisosvet2b\stm32f1xx_hal_tim.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -847,7 +847,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x58036D45)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_flash_ex.o --omf_browse kisosvet2b\stm32f1xx_hal_flash_ex.crf --depend kisosvet2b\stm32f1xx_hal_flash_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -882,7 +882,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x58036D44)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal.o --omf_browse kisosvet2b\stm32f1xx_hal.crf --depend kisosvet2b\stm32f1xx_hal.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -917,7 +917,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c)(0x583B1BD1)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Src\Microrl --C99-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"-D__UVISION_VERSION="522" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o kisosvet2b\stm32f1xx_hal_uart.o --omf_browse kisosvet2b\stm32f1xx_hal_uart.crf --depend kisosvet2b\stm32f1xx_hal_uart.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58036D44)
 I (../Inc/stm32f1xx_hal_conf.h)(0x582E2798)
-I (../Inc/main.h)(0x58FB9481)
+I (../Inc/main.h)(0x598D2B08)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdbool.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdio.h)(0x57F65B18)
 I (D:\Program Files (x86)\Keil\ARM\ARMCC\include\stdlib.h)(0x57F65B18)
@@ -949,4 +949,4 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58036D44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x583B285A)
-F (startup_stm32f103xb.s)(0x58618C6E)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"--pd "__UVISION_VERSION SETA 522" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list startup_stm32f103xb.lst --xref -o kisosvet2b\startup_stm32f103xb.o --depend kisosvet2b\startup_stm32f103xb.d)
+F (startup_stm32f103xb.s)(0x598D1FE4)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-ID:\Work\git\KisosvetV2\stm32\MDK-ARM\RTE\_KisoSvet2b-I"D:\Program Files (x86)\Keil\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include"-I"D:\Program Files (x86)\Keil\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include"--pd "__UVISION_VERSION SETA 522" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list startup_stm32f103xb.lst --xref -o kisosvet2b\startup_stm32f103xb.o --depend kisosvet2b\startup_stm32f103xb.d)

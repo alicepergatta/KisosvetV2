@@ -9,8 +9,8 @@
 
 	//Peripherals
 short buttonState; //where the button state stored
-short ENC1buttonState; //where the Encoder1 button state stored
-short ENC2buttonState; //where the Encoder2 state stored
+short ENC1buttonState = 0; //where the Encoder1 button state stored
+short ENC2buttonState = 0; //where the Encoder2 state stored
 short StatLed1State = 0;
 short StatLed2State = 0;
 short PS_ON = 0;
@@ -57,56 +57,11 @@ void Auxiliary(void)
 		
 	
 TIM2->CCR1 = FAN_PWM; //Set PWM value for fan	
-buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
-ENC1buttonState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_15); //read button state
-ENC2buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8); //read button state
+//buttonState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); //read button state
 GetTemperature();	//get temperature value into global variable from DS18B20 sensor
 FanLogic(FanLogicArg1); //control fan 
 AdcDatahandler(AdcDatahandlerArg); //convert ADC values into voltage values
 
-			//switch for button actions
-switch (buttonState)
-{	
-	case 0:
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
-		break;
-	case 1:
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-		break;
-	default:
-		break;
-}
-
-	//switch for button actions
-switch (ENC1buttonState)
-{	
-	case 0:
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); //!!!!!
-	//StatLed1State = 1;
-	ButtonFunctions(1, 1); //1 - means pressed
-	
-		break;
-	case 1:
-	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-	//StatLed1State = 0;
-		break;
-	default:
-		break;
-}
-
-//switch for button actions
-switch (ENC2buttonState)
-{	
-	case 0:
-	//StatLed2State = 1;
-	ButtonFunctions(2, 1);
-		break;
-	case 1:
-	//StatLed2State = 0;
-		break;
-	default:
-		break;
-}
 	
 	
 
@@ -430,12 +385,26 @@ void EncoderFunctions()
 
 //NewTickTime = HAL_GetTick();
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) //ENC1_SW External interrupt callback
+{
+  if(GPIO_Pin == ENC1_SW_Pin) {
+		ENC1buttonState = 1;
+		ButtonFunctions(1,1); //button of ENC1, state pressed
+  }
+	
+	  if(GPIO_Pin == ENC2_SW_Pin) {
+		ENC2buttonState = 1;
+		ButtonFunctions(2,1); //button of ENC1, state pressed
+  }
+}
+
+
 void ButtonFunctions(short btn_num, short btn_state)
 {
-	switch (btn_num) //Switch by button number arg
+		switch (btn_num) //Switch by button number arg
 	{
 		case 0:
-	switch (btn_state) //Switch by button state arg for Button #0
+	switch (btn_state) //Switch by button state arg for Button #0(ENC2_SW)
 	{
 		case 0:
 			break;
@@ -456,11 +425,15 @@ void ButtonFunctions(short btn_num, short btn_state)
 	if (CurrentBtnPressState != LastBtnPressState)
 				{
 			PS_ON = 1; //On PSU
+			StatLed1State = 1;
+			HAL_GPIO_WritePin(STAT_LED1_GPIO_Port, STAT_LED1_Pin, GPIO_PIN_SET); //debug
 			LastBtnPressState = 1;
 				}
 				else
 				{
-					PS_ON =0; //On PSU
+					PS_ON = 0; //Off PSU
+					StatLed1State = 0;
+					HAL_GPIO_WritePin(STAT_LED1_GPIO_Port, STAT_LED1_Pin, GPIO_PIN_RESET); //debug
 					LastBtnPressState = 0;
 				}
 			break;
@@ -478,11 +451,15 @@ void ButtonFunctions(short btn_num, short btn_state)
 	if (CurrentBtnPressState != LastBtnPressState)
 				{
 			LED1_EN = LED2_EN = LED3_EN = LED4_EN = 1; //On all LED's
+			StatLed2State = 1;
+			HAL_GPIO_WritePin(STAT_LED2_GPIO_Port, STAT_LED2_Pin, GPIO_PIN_SET); //debug
 			LastBtnPressState = 1;
 				}
 				else
 				{
 					LED1_EN = LED2_EN = LED3_EN = LED4_EN = 0; //On all LED's
+					StatLed2State = 0;
+					HAL_GPIO_WritePin(STAT_LED2_GPIO_Port, STAT_LED2_Pin, GPIO_PIN_RESET); //debug
 					LastBtnPressState = 0;
 				}
 			break;
